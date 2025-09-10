@@ -1,4 +1,4 @@
-# Personal Portfolio (Vite + React + TypeScript)
+# Personal Portfolio
 
 Modern, responsive developer portfolio built with Vite, React, TypeScript, Tailwind CSS, and shadcn/ui. It showcases sections like Hero, About, Stats, Experience, Projects, Certifications, and Contact, with dark mode, smooth UI components, basic routing, and a lightweight chatbot widget.
 
