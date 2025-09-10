@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nagaraju Poralla - CV</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --card-bg: #f8fafc;
+            --border-color: #e2e8f0;
+            --primary-color: #2563eb;
+            --accent-color: #0891b2;
+            --muted-color: #475569;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: var(--bg-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .name {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        .title {
+            font-size: 1.3em;
+            color: var(--muted-color);
+            margin: 10px 0;
+        }
+        .contact {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        .contact-item {
+            color: var(--muted-color);
+            font-size: 0.95em;
+        }
+        .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-item a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        .subsection {
+            margin-bottom: 20px;
+        }
+        .subsection-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--text-color);
+            margin-bottom: 8px;
+        }
+        .company {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        .period {
+            color: var(--muted-color);
+            font-style: italic;
+        }
+        .location {
+            color: var(--muted-color);
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .skill-category {
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        .skill-category h4 {
+            margin: 0 0 10px 0;
+            color: var(--primary-color);
+            font-size: 1.1em;
+        }
+        .skill-list {
+            margin: 0;
+            padding-left: 15px;
+        }
+        .skill-list li {
+            margin-bottom: 5px;
+            color: var(--muted-color);
+        }
+        .project {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #10b981;
+        }
+        .project-title {
+            font-weight: bold;
+            color: #059669;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        .project-tech {
+            color: #64748b;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .project-description {
+            margin-bottom: 10px;
+            color: #374151;
+        }
+        .project-features {
+            margin: 0;
+            padding-left: 15px;
+        }
+        .project-features li {
+            margin-bottom: 3px;
+            color: #475569;
+            font-size: 0.9em;
+        }
+        .certification {
+            background: #fef3c7;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            border-left: 4px solid #f59e0b;
+        }
+        .cert-title {
+            font-weight: bold;
+            color: #92400e;
+            margin-bottom: 3px;
+        }
+        .cert-provider {
+            color: #a16207;
+            font-size: 0.9em;
+        }
+        .cert-year {
+            color: #a16207;
+            font-size: 0.9em;
+            float: right;
+        }
+        .achievement {
+            background: #ecfdf5;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            border-left: 4px solid #10b981;
+        }
+        .achievement-title {
+            font-weight: bold;
+            color: #065f46;
+            margin-bottom: 3px;
+        }
+        .achievement-provider {
+            color: #047857;
+            font-size: 0.9em;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .stat-item {
+            text-align: center;
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #1e40af;
+        }
+        .stat-label {
+            color: #64748b;
+            font-size: 0.9em;
+        }
+        @media print {
+            body { margin: 0; padding: 15px; }
+            .section { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="name">NAGARAJU PORALLA</h1>
+        <p class="title">Fullstack Developer & AI/ML Enthusiast</p>
+        <div class="contact">
+            <div class="contact-item">📧 <a href="mailto:nagarajuporalla13@gmail.com">nagarajuporalla13@gmail.com</a></div>
+            <div class="contact-item">🐙 <a href="https://github.com/Nagaraju13" target="_blank">github.com/Nagaraju13</a></div>
+            <div class="contact-item">💼 <a href="https://linkedin.com/in/nagarajuporalla" target="_blank">linkedin.com/in/nagarajuporalla</a></div>
+            <div class="contact-item">📍 Hyderabad, Telangana, India</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">PROFESSIONAL SUMMARY</h2>
+        <p>Computer Science Engineering student passionate about AI/ML and web development. Experienced in building intelligent solutions and modern web applications with hands-on experience in machine learning projects and web development internships. Currently working as a Web Developer Intern at TruPricer, managing domains, handling DNS records, and building SEO-friendly websites using modern technologies.</p>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">EDUCATION</h2>
+        <div class="subsection">
+            <div class="subsection-title">Bachelor of Technology in Computer Science and Engineering</div>
+            <div class="company">Siddhartha Institute Of Engineering and Technology</div>
+            <div class="period">June 2021 – July 2025</div>
+            <div>CGPA: 7.33</div>
+        </div>
+        <div class="subsection">
+            <div class="subsection-title">Intermediate Public Examination</div>
+            <div class="company">Krishnaveni Junior College</div>
+            <div class="period">June 2020 – March 2021</div>
+            <div>Marks: 900</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">PROFESSIONAL EXPERIENCE</h2>
+        <div class="subsection">
+            <div class="subsection-title">Web Developer Intern</div>
+            <div class="company">TruPricer</div>
+            <div class="period">February 2025 – August 2025</div>
+            <div class="location">Hyderabad, TS</div>
+            <p><strong>Key Responsibilities:</strong></p>
+            <ul>
+                <li>Registered and managed domains using platforms like Hostinger, GoDaddy, and Namecheap</li>
+                <li>Set up and maintained WordPress Websites with optimized hosting settings</li>
+                <li>Handled DNS records, SSL integration, and website migrations</li>
+                <li>Built responsive and SEO-friendly websites using HTML, CSS, JavaScript, and basic PHP</li>
+            </ul>
+            <p><strong>Technologies Used:</strong> WordPress, Domain Management, DNS, SSL, HTML, CSS, JavaScript, PHP, SEO</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">TECHNICAL SKILLS</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4>Programming Languages</h4>
+                <ul class="skill-list">
+                    <li>Java</li>
+                    <li>JavaScript</li>
+                    <li>C</li>
+                    <li>PHP</li>
+                    <li>Python</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Frontend Development</h4>
+                <ul class="skill-list">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>React</li>
+                    <li>Responsive Design</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Database</h4>
+                <ul class="skill-list">
+                    <li>MySQL</li>
+                    <li>Database Design</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>AI/ML Technologies</h4>
+                <ul class="skill-list">
+                    <li>Supervised Learning</li>
+                    <li>Deep Learning</li>
+                    <li>NLP</li>
+                    <li>TensorFlow</li>
+                    <li>Scikit-learn</li>
+                    <li>Computer Vision</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Design & Tools</h4>
+                <ul class="skill-list">
+                    <li>Figma</li>
+                    <li>Canva</li>
+                    <li>UI/UX</li>
+                    <li>WordPress</li>
+                    <li>Git</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">PROJECTS</h2>
+        
+        <div class="project">
+            <div class="project-title">1. Smart E-Commerce Price Negotiation Chatbot</div>
+            <div class="project-tech">Technologies: Python, NLTK, Scikit-learn, Tkinter, NLP, Machine Learning</div>
+            <div class="project-description">AI-powered chatbot using Python, NLTK, and scikit-learn for intent recognition and response with real-time user interaction through Tkinter GUI.</div>
+            <p><strong>Key Features:</strong></p>
+            <ul class="project-features">
+                <li>Real-time user interaction with Tkinter GUI</li>
+                <li>Intent recognition using scikit-learn</li>
+                <li>NLP techniques: tokenization and lemmatization</li>
+                <li>JSON-based training data for flexible customization</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <div class="project-title">2. Underwater Image Enhancement With MSRAN</div>
+            <div class="project-tech">Technologies: Python, TensorFlow, CNN, MSRAN, UIEB, Computer Vision</div>
+            <div class="project-description">Advanced image enhancement model using Multi-Scale Residual Attention Network to restore degraded underwater images with superior visual quality.</div>
+            <p><strong>Key Features:</strong></p>
+            <ul class="project-features">
+                <li>Multi-scale feature extraction and attention mechanisms</li>
+                <li>Improved image clarity and color correction</li>
+                <li>Superior PSNR/SSIM metrics vs traditional methods</li>
+                <li>Detail recovery for degraded underwater images</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <div class="project-title">3. AI Spam Classifier</div>
+            <div class="project-tech">Technologies: Python, Scikit-learn, Pandas, NumPy, Streamlit, Jupyter</div>
+            <div class="project-description">Email spam detection system using Natural Language Processing and machine learning with Streamlit interface for real-time classification.</div>
+            <p><strong>Key Features:</strong></p>
+            <ul class="project-features">
+                <li>Text preprocessing and feature extraction (TF-IDF)</li>
+                <li>Classification using Naive Bayes algorithm</li>
+                <li>Interactive Streamlit web interface</li>
+                <li>Comprehensive data analysis with Pandas/NumPy</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <div class="project-title">4. Movie Recommendation System</div>
+            <div class="project-tech">Technologies: Python, CSV, Matplotlib, Scikit-learn, Collaborative Filtering</div>
+            <div class="project-description">Intelligent movie recommendation engine using collaborative filtering and similarity metrics to provide personalized movie suggestions.</div>
+            <p><strong>Key Features:</strong></p>
+            <ul class="project-features">
+                <li>User-item matrix for personalized suggestions</li>
+                <li>Similarity metrics and collaborative filtering</li>
+                <li>Data visualization with Matplotlib</li>
+                <li>Machine learning-based recommendation algorithms</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <div class="project-title">5. Informative Website</div>
+            <div class="project-tech">Technologies: WordPress, HTML, CSS, Domain Management, Hosting</div>
+            <div class="project-description">Functional informational website built with WordPress, featuring course management and content organization with professional hosting setup.</div>
+            <p><strong>Key Features:</strong></p>
+            <ul class="project-features">
+                <li>WordPress design and deployment</li>
+                <li>Domain setup and DNS records management</li>
+                <li>Hosting through InfinityFree and FreeNom</li>
+                <li>Course Management and Content Organization</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">CERTIFICATIONS & ACHIEVEMENTS</h2>
+        
+        <h3>Professional Certifications</h3>
+        <div class="certification">
+            <div class="cert-title">Programming in Python: Core Concepts</div>
+            <div class="cert-provider">LearnTube By CareerNinja</div>
+            <div class="cert-year">2024</div>
+        </div>
+        <div class="certification">
+            <div class="cert-title">Machine Learning Using Python (Internship)</div>
+            <div class="cert-provider">YHills Edutech Pvt Ltd</div>
+            <div class="cert-year">2024</div>
+        </div>
+        <div class="certification">
+            <div class="cert-title">Technical Intern (JavaScript, AI tools, Astro Frameworks)</div>
+            <div class="cert-provider">Prasanta Communications, Hyderabad</div>
+            <div class="cert-year">2024-2025</div>
+        </div>
+        <div class="certification">
+            <div class="cert-title">Web Developer (DNS Records, Deploying Server)</div>
+            <div class="cert-provider">Trupricer (Pure In Fresh Foods Pvt Ltd)</div>
+            <div class="cert-year">2025</div>
+        </div>
+        <div class="certification">
+            <div class="cert-title">Foundations of Artificial Intelligence (Internship)</div>
+            <div class="cert-provider">Microsoft — Edunet Foundation — AICTE</div>
+            <div class="cert-year">2025</div>
+        </div>
+        <div class="certification">
+            <div class="cert-title">Artificial Intelligence and Data Analytics (Internship)</div>
+            <div class="cert-provider">AICTE — Shell India — Edunet Foundation — Skills4Future Program</div>
+            <div class="cert-year">2025</div>
+        </div>
+
+        <h3>Skill Badges & Achievements</h3>
+        <div class="achievement">
+            <div class="achievement-title">Prompt Design in Vertex AI Skill Badge</div>
+            <div class="achievement-provider">Google Cloud Skills Boost</div>
+        </div>
+        <div class="achievement">
+            <div class="achievement-title">Introduction to Generative AI Skill Badge</div>
+            <div class="achievement-provider">AWS Educate</div>
+        </div>
+        <div class="achievement">
+            <div class="achievement-title">Build Real World AI Applications with Gemini and Imagen</div>
+            <div class="achievement-provider">Google Cloud Skills Boost</div>
+        </div>
+        <div class="achievement">
+            <div class="achievement-title">Journey to Cloud: Envisioning Your Solution</div>
+            <div class="achievement-provider">IBM Skill Build</div>
+        </div>
+        <div class="achievement">
+            <div class="achievement-title">Explore Generative AI with the Vertex AI Gemini API</div>
+            <div class="achievement-provider">Google Cloud Skills Boost</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">ACHIEVEMENTS & STATISTICS</h2>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3+</div>
+                <div class="stat-label">Technology Areas</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Certifications</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">95%+</div>
+                <div class="stat-label">Spam Detection Accuracy</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">INTERESTS & HOBBIES</h2>
+        <ul>
+            <li>🤖 Building AI-powered applications and exploring machine learning algorithms</li>
+            <li>🌊 Working on computer vision projects, especially image enhancement</li>
+            <li>📧 Developing intelligent email filtering and classification systems</li>
+            <li>💻 Creating responsive and user-friendly web applications</li>
+            <li>☁️ Exploring cloud technologies and generative AI applications</li>
+        </ul>
+    </div>
+
+</body>
+</html>
