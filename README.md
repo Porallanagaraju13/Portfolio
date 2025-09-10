@@ -1,73 +1,117 @@
-# Welcome to your Lovable project
+# Personal Portfolio (Vite + React + TypeScript)
 
-## Project info
+Modern, responsive developer portfolio built with Vite, React, TypeScript, Tailwind CSS, and shadcn/ui. It showcases sections like Hero, About, Stats, Experience, Projects, Certifications, and Contact, with dark mode, smooth UI components, basic routing, and a lightweight chatbot widget.
 
-**URL**: https://lovable.dev/projects/8cbfa0f0-341e-4b32-b6b9-08157938d65a
+## 🚀 Tech Stack
 
-## How can I edit this code?
+- React 18 + TypeScript
+- Vite 5 (SWC React plugin)
+- Tailwind CSS + tailwind-merge + tailwindcss-animate
+- shadcn/ui (Radix UI primitives)
+- React Router DOM
+- TanStack Query (React Query)
+- Recharts (charts)
+- Lucide Icons
 
-There are several ways of editing your application.
+## ✨ Features
 
-**Use Lovable**
+- Responsive UI with Tailwind + shadcn/ui components
+- Dark mode support via `next-themes`
+- Client-side routing with `react-router-dom`
+- Toasts and notifications (`sonner`, shadcn Toaster)
+- Charts/Stats section powered by `recharts`
+- Organized, reusable UI components under `src/components/ui`
+- Chatbot component mounted app-wide
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/8cbfa0f0-341e-4b32-b6b9-08157938d65a) and start prompting.
+## 📦 Project Structure
 
-Changes made via Lovable will be committed automatically to this repo.
+```
+src/
+  assets/                     # static assets
+  components/
+    ui/                       # shadcn/ui primitives
+    About.tsx
+    Certifications.tsx
+    Chatbot.tsx
+    Contact.tsx
+    Experience.tsx
+    Footer.tsx
+    Hero.tsx
+    Navigation.tsx
+    ParticleBackground.tsx
+    Projects.tsx
+    Stats.tsx
+  contexts/
+    ThemeContext.tsx          # theme handling
+  hooks/
+    use-mobile.tsx
+    use-toast.ts
+  lib/
+    utils.ts
+  pages/
+    Index.tsx                 # homepage (sections)
+    NotFound.tsx
+  App.tsx                     # providers, router, chatbot
+  main.tsx                    # React root
+```
 
-**Use your preferred IDE**
+Public assets include resume/CV and certificates under `public/`.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🛠️ Setup & Development
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Prerequisites: Node.js 18+ and npm.
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+git clone <YOUR_REPO_URL>
+cd <YOUR_PROJECT_DIRECTORY>
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The dev server runs (by default) on http://localhost:8080 as configured in `vite.config.ts`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📜 Available Scripts
 
-**Use GitHub Codespaces**
+- `npm run dev` – start Vite dev server
+- `npm run build` – production build
+- `npm run build:dev` – development-mode build
+- `npm run preview` – preview the production build locally
+- `npm run lint` – run ESLint
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🔧 Configuration
 
-## What technologies are used for this project?
+- `vite.config.ts` – alias `@` → `src`, dev server port 8080
+- `tailwind.config.ts` – Tailwind setup + typography
+- `eslint.config.js` – TypeScript/React rules
+- `tsconfig*.json` – TypeScript configuration
 
-This project is built with:
+## 🧩 Key Implementation Details
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- Providers: App wraps `TooltipProvider`, `Toaster`, `Sonner`, and `QueryClientProvider`.
+- Routing: `BrowserRouter` routes `/` to `pages/Index.tsx` and `*` to `NotFound`.
+- Sections: `Index.tsx` composes `Hero`, `About`, `Stats`, `Experience`, `Projects`, `Certifications`, `Contact`, and `Footer`.
+- UI: Components from `src/components/ui` are based on shadcn/ui and Radix.
+- Chatbot: `Chatbot` is rendered globally from `App.tsx`.
 
-## How can I deploy this project?
+## 🚢 Deployment
 
-Simply open [Lovable](https://lovable.dev/projects/8cbfa0f0-341e-4b32-b6b9-08157938d65a) and click on Share -> Publish.
+Static hosting works great (Vite build outputs to `dist/`). You can deploy to Netlify, Vercel, GitHub Pages, Cloudflare Pages, or any static host.
 
-## Can I connect a custom domain to my Lovable project?
+Build and preview locally:
 
-Yes, you can!
+```sh
+npm run build
+npm run preview
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📁 Assets & Content
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- `public/` contains static files (resume/CV, certificates, images, robots.txt). Files here are served at the site root.
+
+## 🤝 Contributing
+
+Issues and PRs are welcome for fixes, improvements, or new features.
+
+## 📄 License
+
+This project does not currently specify a license. Add one (e.g., MIT) if you plan to open-source contributions.
