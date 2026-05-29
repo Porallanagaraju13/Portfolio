@@ -1,0 +1,149 @@
+import { useState, useEffect } from "react";
+import { motion, useScroll, useSpring } from "motion/react";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Experience from "./components/Experience";
+import Skills from "./components/Skills";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import AIChatbot from "./components/AIChatbot";
+
+export default function App() {
+  // Try to read visual dark theme configuration default state from browser storage
+  const [darkMode, setDarkMode] = useState(() => {
+    try {
+      const saved = localStorage.getItem("portfolio_dark_mode");
+      if (saved !== null) {
+        return JSON.parse(saved);
+      }
+      return false; // Standard clean off-white theme by default
+    } catch {
+      return false;
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("portfolio_dark_mode", JSON.stringify(darkMode));
+    } catch (err) {
+      console.warn("Failed to preserve theme state:", err);
+    }
+  }, [darkMode]);
+
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
+  // Smooth navigator scroll handler
+  const scrollToContact = () => {
+    const contactElem = document.getElementById("contact");
+    if (contactElem) {
+      contactElem.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  return (
+    <div className={`min-h-screen font-sans transition-colors duration-300 relative ${
+      darkMode 
+        ? "bg-neutral-dark text-gray-100 dark" 
+        : "bg-neutral-light text-neutral-dark"
+    }`}>
+      {/* Spring Scroll Progress Bar */}
+      <motion.div
+        style={{ scaleX }}
+        className="fixed top-0 left-0 right-0 h-[4px] bg-brand-orange origin-left z-50"
+      />
+
+      {/* Centered Decorative background layout elements */}
+      <div className="absolute top-0 inset-x-0 h-[600px] bg-gradient-to-b from-brand-orange/3 to-transparent pointer-events-none z-0"></div>
+
+      {/* Floating Navigation panel */}
+      <Navbar 
+        darkMode={darkMode} 
+        setDarkMode={setDarkMode} 
+        onHireMeClick={scrollToContact} 
+        isChatOpen={isChatOpen}
+        setIsChatOpen={setIsChatOpen}
+      />
+
+      {/* Primary Landing layout parts */}
+      <div className="relative z-10 flex flex-col space-y-16">
+        
+        {/* Home / Hero introductory block */}
+        <Hero 
+          darkMode={darkMode} 
+          onContactClick={scrollToContact} 
+        />
+
+        {/* Detailed Developer facts */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <About darkMode={darkMode} />
+        </motion.div>
+
+        {/* Detailed job timeline charts */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <Experience darkMode={darkMode} />
+        </motion.div>
+
+        {/* Custom skills segments */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <Skills darkMode={darkMode} />
+        </motion.div>
+
+        {/* Grid matching the 3 Featured Portfolio showcases with Interactive Playgrounds */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <Projects darkMode={darkMode} />
+        </motion.div>
+
+        {/* High Circularity Get in Touch contacts dashboard */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <Contact darkMode={darkMode} />
+        </motion.div>
+
+        {/* Footer with legal terms links */}
+        <Footer darkMode={darkMode} />
+
+        {/* Floating Interactive Gemini Chat widget */}
+        <AIChatbot 
+          darkMode={darkMode} 
+          isOpenState={isChatOpen}
+          setIsOpenState={setIsChatOpen}
+        />
+
+      </div>
+    </div>
+  );
+}
+export { App };
