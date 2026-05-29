@@ -261,7 +261,8 @@ Guidelines for your responses:
     }
 
     // 2. Local Express Server Call (fallback/local development backend route)
-    if (!replyText) {
+    const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+    if (!replyText && isLocal) {
       try {
         const chatHistory = messages.concat(userMsg).map(m => ({
           role: m.sender === "user" ? "user" : "model",
