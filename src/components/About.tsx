@@ -33,7 +33,7 @@ export default function About({ darkMode }: AboutProps) {
                 <div className="absolute inset-6 rounded-full bg-brand-teal-light blur-3xl -z-10 animate-pulse"></div>
                 {/* Developer Image */}
                 <img
-                  src="/assets/avatar_about.png"
+                  src="./assets/avatar_about.png"
                   alt="3D illustration of Nagaraju interacting with AI"
                   className="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,168,150,0.2)] hover:scale-105 transition-transform duration-500 relative z-10"
                   referrerPolicy="no-referrer"

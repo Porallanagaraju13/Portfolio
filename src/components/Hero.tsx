@@ -212,7 +212,7 @@ CERTIFICATIONS:
                 {/* Floating ambient glow specifically behind the avatar */}
                 <div className="absolute inset-4 rounded-full bg-brand-orange/15 blur-3xl -z-10 animate-pulse"></div>
                 <img
-                  src="/assets/avatar_hero.png"
+                  src="./assets/avatar_hero.png"
                   alt="3D Pixar-style character avatar of Nagaraju Poralla as a software engineer"
                   className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(255,138,0,0.25)] hover:scale-[1.03] transition-transform duration-550 relative z-10"
                   referrerPolicy="no-referrer"

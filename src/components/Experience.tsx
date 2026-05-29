@@ -395,7 +395,7 @@ export default function Experience({ darkMode }: ExperienceProps) {
                   {/* Floating ambient glow specifically behind the avatar */}
                   <div className="absolute inset-6 rounded-full bg-brand-orange/10 blur-3xl -z-10 animate-pulse"></div>
                   <img
-                    src="/assets/avatar_experience.png"
+                    src="./assets/avatar_experience.png"
                     alt="3D illustration of career timeline"
                     className="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(255,138,0,0.15)] hover:scale-105 transition-transform duration-550 relative z-10"
                     referrerPolicy="no-referrer"
