@@ -397,8 +397,8 @@ export default function Experience({ darkMode }: ExperienceProps) {
                   <AnimatePresence mode="wait">
                     <motion.img
                       key={activeTab}
-                      src="./assets/avatar_experience.png"
-                      alt="3D illustration of career timeline"
+                      src={activeTab === "education" ? "./assets/avatar_education.png" : "./assets/avatar_experience.png"}
+                      alt={activeTab === "education" ? "3D illustration of graduation and education" : "3D illustration of career timeline"}
                       className="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(255,138,0,0.15)] hover:scale-105 transition-transform duration-550 relative z-10"
                       referrerPolicy="no-referrer"
                       initial={{ opacity: 0, scale: 0.9, rotateY: 15 }}
