@@ -149,11 +149,32 @@ CERTIFICATIONS:
 
               {/* Heading */}
               <div className="space-y-4">
-                <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-tight select-none">
-                  <span className={darkMode ? "text-gray-100" : "text-neutral-dark"}>Hi, I'm</span>
-                  <br />
-                  <span className="text-brand-orange">Nagaraju Poralla</span>
-                </h1>
+                <div className="flex items-center gap-3 sm:gap-5">
+                  <h1 className="min-w-0 flex-1 text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-tight select-none">
+                    <span className={darkMode ? "text-gray-100" : "text-neutral-dark"}>Hi, I'm</span>
+                    <br />
+                    <span className="text-brand-orange">Nagaraju Poralla</span>
+                  </h1>
+
+                  <div className="md:hidden shrink-0 w-[118px] sm:w-[150px]">
+                    <Tilt3D maxRotate={12} scale={1.04} className="w-full">
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="relative w-full aspect-square flex items-center justify-center"
+                      >
+                        <div className="absolute inset-3 rounded-full bg-brand-orange/15 blur-2xl -z-10 animate-pulse"></div>
+                        <img
+                          src="./assets/avatar_hero.png"
+                          alt="3D Pixar-style character avatar of Nagaraju Poralla as a software engineer"
+                          className="w-full h-auto object-contain drop-shadow-[0_12px_24px_rgba(255,138,0,0.22)] relative z-10"
+                          referrerPolicy="no-referrer"
+                        />
+                      </motion.div>
+                    </Tilt3D>
+                  </div>
+                </div>
 
                 <h2 className={`text-xl sm:text-2xl md:text-3xl font-bold ${
                   darkMode ? "text-gray-300" : "text-neutral-muted"
@@ -200,7 +221,7 @@ CERTIFICATIONS:
           </div>
 
           {/* Right Column: 3D Pixar-style Avatar Image with 3D Tilt */}
-          <div className="md:col-span-5 flex justify-center relative">
+          <div className="hidden md:flex md:col-span-5 justify-center relative">
             <Tilt3D maxRotate={15} scale={1.05} className="w-full max-w-[360px] md:max-w-[400px]">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
