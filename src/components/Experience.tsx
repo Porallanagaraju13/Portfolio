@@ -120,14 +120,14 @@ export default function Experience({ darkMode }: ExperienceProps) {
   ];
 
   return (
-    <section ref={containerRef} id="experience" className="py-20 bg-brand-orange-faint relative overflow-hidden">
+    <section ref={containerRef} id="experience" className="py-14 sm:py-20 bg-brand-orange-faint relative overflow-hidden">
       {/* Background ambient light */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#FFF8F2]/30 to-transparent pointer-events-none dark:via-transparent" />
       
       <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
         
         {/* Header containing switcher */}
-        <div className="flex flex-col items-center justify-center text-center gap-5 mb-14">
+        <div className="flex flex-col items-center justify-center text-center gap-5 mb-8 sm:mb-14">
           {/* Section Title */}
           <div className="flex items-center justify-center space-x-2 text-neutral-dark dark:text-gray-100">
             {activeTab === "experience" ? (
@@ -135,7 +135,7 @@ export default function Experience({ darkMode }: ExperienceProps) {
             ) : (
               <GraduationCap className="text-brand-orange animate-pulse" size={24} />
             )}
-            <h2 className="text-3xl font-extrabold tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
               {activeTab === "experience" ? "Career Path" : "Education & Credentials"}
             </h2>
           </div>
@@ -174,10 +174,10 @@ export default function Experience({ darkMode }: ExperienceProps) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
           {/* Left Area - Timeline content switching */}
-          <div className="lg:col-span-7">
+          <div className="order-2 lg:order-1 lg:col-span-7">
             <AnimatePresence mode="wait">
               {activeTab === "experience" ? (
                 <motion.div
@@ -218,7 +218,7 @@ export default function Experience({ darkMode }: ExperienceProps) {
                       </div>
 
                       {/* Card Container */}
-                      <div className={`p-6 rounded-2xl border transition-all duration-300 ${
+                      <div className={`p-4 sm:p-6 rounded-2xl border transition-all duration-300 ${
                         exp.isLatest
                           ? darkMode
                             ? "bg-gray-950/80 border-brand-orange/40 shadow-lg shadow-black/20"
@@ -292,7 +292,7 @@ export default function Experience({ darkMode }: ExperienceProps) {
                         </div>
 
                         {/* Card Container */}
-                        <div className={`p-5 rounded-2xl border transition-all duration-300 ${
+                        <div className={`p-4 sm:p-5 rounded-2xl border transition-all duration-300 ${
                           darkMode ? "bg-gray-950/80 border-gray-850" : "bg-white border-[#EBEBEB] shadow-[0_8px_20px_-4px_rgba(0,0,0,0.015)]"
                         }`}>
                           <h4 className={`text-base font-bold tracking-tight ${
@@ -381,9 +381,9 @@ export default function Experience({ darkMode }: ExperienceProps) {
           </div>
 
           {/* Right Presentation Vector Graphic Column */}
-          <div className="lg:col-span-5 lg:self-stretch relative">
-            <div className="sticky top-20 flex justify-center">
-              <Tilt3D maxRotate={12} scale={1.06} className="w-full max-w-[380px] md:max-w-[460px]">
+          <div className="order-1 lg:order-2 lg:col-span-5 lg:self-stretch relative">
+            <div className="lg:sticky lg:top-20 flex justify-center">
+              <Tilt3D maxRotate={12} scale={1.06} className="w-full max-w-[260px] sm:max-w-[340px] md:max-w-[400px] lg:max-w-[460px]">
                 <motion.div
                   style={{ y: yImage }}
                   initial={{ scale: 0.9, opacity: 0 }}
