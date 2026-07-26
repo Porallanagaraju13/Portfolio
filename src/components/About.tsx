@@ -35,6 +35,8 @@ export default function About({ darkMode }: AboutProps) {
                 <img
                   src="./assets/avatar_about.png"
                   alt="3D illustration of Nagaraju interacting with AI"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,168,150,0.2)] hover:scale-105 transition-transform duration-500 relative z-10"
                   referrerPolicy="no-referrer"
                 />

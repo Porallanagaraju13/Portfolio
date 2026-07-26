@@ -55,6 +55,12 @@ export default function App() {
         ? "bg-neutral-dark text-gray-100 dark" 
         : "bg-neutral-light text-neutral-dark"
     }`}>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-brand-orange focus:px-4 focus:py-2 focus:font-bold focus:text-white"
+      >
+        Skip to content
+      </a>
       {/* Spring Scroll Progress Bar */}
       <motion.div
         style={{ scaleX }}
@@ -74,7 +80,7 @@ export default function App() {
       />
 
       {/* Primary Landing layout parts */}
-      <div className="relative z-10 flex flex-col space-y-16">
+      <main id="main-content" className="relative z-10 flex flex-col space-y-16 pb-24 md:pb-0">
         
         {/* Home / Hero introductory block */}
         <Hero 
@@ -142,7 +148,7 @@ export default function App() {
           setIsOpenState={setIsChatOpen}
         />
 
-      </div>
+      </main>
     </div>
   );
 }

@@ -35,7 +35,6 @@ export default function Projects({ darkMode }: ProjectsProps) {
       tags: ["n8n", "Gemini AI", "Google Sheets", "Gmail"],
       iconType: "pipeline",
       demoType: "resume",
-      githubUrl: "https://github.com/Porallanagaraju13",
       details: "A multi-stage agentic recruiter pipeline. Automates CV processing by scanning intakes, scoring resumes via Gemini AI, uploading selected CVs to Google Drive, scheduling Google Meet interviews, and notifying applicants and HR via Gmail."
     },
     {
@@ -45,7 +44,6 @@ export default function Projects({ darkMode }: ProjectsProps) {
       tags: ["Gemini Vision", "n8n", "Telegram Bot", "JavaScript"],
       iconType: "telegram",
       demoType: "invoice",
-      githubUrl: "https://github.com/Porallanagaraju13",
       details: "A smart Telegram bot that processes invoice images or PDFs. Leverages Gemini Vision to extract line items, auto-generates pharmacy codes with dosage, maps HSN & GST rates (CGST/SGST/IGST) according to Indian tax law, and outputs structured CSV files."
     },
     {
@@ -55,7 +53,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
       tags: ["Python", "NLTK", "scikit-learn", "Tkinter"],
       iconType: "chatbot",
       demoType: "ecommerce",
-      githubUrl: "https://github.com/Porallanagaraju13",
+      githubUrl: "https://github.com/Porallanagaraju13/Chatbot-AI",
       details: "An AI negotiation chatbot trained on JSON dialogue datasets. Utilizes NLTK and scikit-learn for intent recognition, incorporating custom tokenization and lemmatization, with an interactive Tkinter graphical interface."
     },
     {
@@ -65,6 +63,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
       tags: ["Next.js", "TypeScript", "Supabase", "Inngest", "Stripe"],
       iconType: "jobmatch",
       githubUrl: "https://github.com/Porallanagaraju13/Job-Match",
+      liveUrl: "https://job-match-1.vercel.app/",
       details: "A comprehensive SaaS platform that automates job discovery and resume parsing. Built with Next.js App Router, Supabase RLS, and Inngest background event processing."
     },
     {
@@ -74,6 +73,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
       tags: ["Next.js", "Gemini Live API", "Twilio", "Supabase", "WebSocket"],
       iconType: "voiceai",
       githubUrl: "https://github.com/Porallanagaraju13/Vgrow-Voice-AI",
+      liveUrl: "https://vgrowvoice-web-722165195284.us-central1.run.app/",
       details: "Autonomous voice AI agent handling inbound calls, lead campaign form call-backs, appointment scheduling, and multilingual conversations (English, Telugu, Hindi)."
     },
     {
@@ -177,7 +177,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
           <p className={`text-sm sm:text-base ${
             darkMode ? "text-gray-400" : "text-neutral-muted"
           }`}>
-            A showcase of AI-driven SaaS solutions, automated pipelines, and technical R&D.
+            Selected AI, automation, and full-stack work—each card links to a live product, repository, or interactive demo.
           </p>
         </div>
 
@@ -199,10 +199,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.5, delay: idx * 0.08, ease: "easeOut" }}
-                    onClick={() => proj.demoType && setActiveDemo(activeDemo === proj.demoType ? null : proj.demoType)}
                     className={`p-6 rounded-[28px] border flex flex-col justify-between h-full transition-all duration-300 ${
-                      proj.demoType ? "cursor-pointer" : ""
-                    } ${
                       darkMode ? "bg-[#1C1C1E] border-neutral-800" : "bg-white border-[#EDEDED]"
                     } ${
                       activeDemo === proj.demoType
@@ -244,21 +241,39 @@ export default function Projects({ darkMode }: ProjectsProps) {
                           }`}>
                             {proj.title}
                           </h3>
-                          {proj.githubUrl && (
-                            <a
-                              href={proj.githubUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={(e) => e.stopPropagation()}
-                              title="View GitHub Repository"
-                              className={`p-1.5 rounded-full transition-colors ${
-                                darkMode 
-                                  ? "text-gray-400 hover:text-white hover:bg-neutral-800" 
-                                  : "text-gray-500 hover:text-black hover:bg-gray-100"
-                              }`}
-                            >
-                              <Github size={16} />
-                            </a>
+                          {(proj.githubUrl || proj.liveUrl) && (
+                            <div className="flex shrink-0 items-center gap-1">
+                              {proj.githubUrl && (
+                                <a
+                                  href={proj.githubUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  aria-label={`View ${proj.title} on GitHub`}
+                                  className={`rounded-full p-1.5 transition-colors ${
+                                    darkMode
+                                      ? "text-gray-400 hover:bg-neutral-800 hover:text-white"
+                                      : "text-gray-500 hover:bg-gray-100 hover:text-black"
+                                  }`}
+                                >
+                                  <Github size={16} />
+                                </a>
+                              )}
+                              {proj.liveUrl && (
+                                <a
+                                  href={proj.liveUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  aria-label={`Open the live ${proj.title} project`}
+                                  className={`rounded-full p-1.5 transition-colors ${
+                                    darkMode
+                                      ? "text-gray-400 hover:bg-neutral-800 hover:text-white"
+                                      : "text-gray-500 hover:bg-gray-100 hover:text-black"
+                                  }`}
+                                >
+                                  <ExternalLink size={16} />
+                                </a>
+                              )}
+                            </div>
                           )}
                         </div>
 
@@ -288,6 +303,18 @@ export default function Projects({ darkMode }: ProjectsProps) {
                         );
                       })}
                     </div>
+
+                    {proj.demoType && (
+                      <button
+                        type="button"
+                        onClick={() => setActiveDemo(activeDemo === proj.demoType ? null : proj.demoType)}
+                        aria-expanded={activeDemo === proj.demoType}
+                        className="mt-5 flex items-center gap-2 self-start text-sm font-bold text-brand-orange transition-colors hover:text-brand-orange-hover"
+                      >
+                        {activeDemo === proj.demoType ? "Close interactive demo" : "Open interactive demo"}
+                        <ArrowRight size={16} aria-hidden="true" />
+                      </button>
+                    )}
 
                   </motion.div>
                 </Tilt3D>

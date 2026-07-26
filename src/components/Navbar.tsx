@@ -1,4 +1,4 @@
-import { Moon, Sun, ArrowRight, Home, User, Code, Folder, Mail, Bot } from "lucide-react";
+import { Moon, Sun, ArrowRight, Briefcase, Home, User, Code, Folder, Mail, Bot } from "lucide-react";
 import { useState, useEffect } from "react";
 
 interface NavbarProps {
@@ -14,7 +14,7 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
 
   // Intersection Observer to highlight current section as user scrolls
   useEffect(() => {
-    const sections = ["home", "about", "skills", "projects", "contact"];
+    const sections = ["home", "about", "experience", "skills", "projects", "contact"];
     const observerOptions = {
       root: null,
       rootMargin: "-25% 0px -55% 0px", // Optimizes target section in focus
@@ -47,6 +47,7 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
   const navLinks = [
     { name: "Home", href: "#home", icon: Home, id: "home" },
     { name: "About", href: "#about", icon: User, id: "about" },
+    { name: "Experience", href: "#experience", icon: Briefcase, id: "experience" },
     { name: "Skills", href: "#skills", icon: Code, id: "skills" },
     { name: "Projects", href: "#projects", icon: Folder, id: "projects" },
     { name: "Contact", href: "#contact", icon: Mail, id: "contact" },
@@ -54,13 +55,13 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
 
   return (
     <>
-      {/* Elegantly Blended Desktop Header / Navbar (Visible on tablet & desktop, hidden on mobile) */}
-      <header className={`sticky top-0 z-50 w-full backdrop-blur-md transition-all duration-300 border-b hidden sm:block ${
+      {/* Desktop header */}
+      <header className={`sticky top-0 z-50 hidden w-full border-b backdrop-blur-md transition-all duration-300 md:block ${
         darkMode
           ? "bg-neutral-dark/85 border-gray-800/80 text-white shadow-lg shadow-black/5"
           : "bg-white/80 border-gray-100 text-neutral-dark shadow-xs"
       }`}>
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
+        <div className="mx-auto flex h-20 max-w-5xl items-center justify-between gap-4 px-6 md:px-8">
           {/* Logo */}
           <a 
             href="#home" 
@@ -86,13 +87,14 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
           </a>
 
           {/* Desktop Navigation Links */}
-          <div className="flex items-center space-x-6 md:space-x-8">
+          <nav aria-label="Primary navigation" className="flex min-w-0 items-center space-x-4 lg:space-x-7">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
                 <a
                   key={link.name}
                   href={link.href}
+                  aria-label={link.name}
                   className={`text-sm font-semibold tracking-wide transition-colors duration-200 relative group py-2 ${
                     isActive 
                       ? "text-brand-orange" 
@@ -106,7 +108,7 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
                 </a>
               );
             })}
-          </div>
+          </nav>
 
           {/* Desktop Actions */}
           <div className="flex items-center space-x-4">
@@ -127,6 +129,7 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
             {/* Hire Me button */}
             <button
               onClick={onHireMeClick}
+              aria-label="Contact Nagaraju"
               className="flex items-center space-x-1.5 px-5 py-2.5 rounded-xl bg-brand-orange text-white text-sm font-bold shadow-lg shadow-brand-orange/15 hover:bg-brand-orange-hover hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
             >
               <span>Hire Me</span>
@@ -136,8 +139,8 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
         </div>
       </header>
 
-      {/* Minimal Top Logo Header on Mobile (Hidden on desktop) */}
-      <header className="sm:hidden absolute top-0 left-0 right-0 z-40 w-full px-6 py-5 flex items-center justify-between select-none">
+      {/* Minimal top header on mobile */}
+      <header className="absolute inset-x-0 top-0 z-40 flex w-full max-w-full box-border items-center justify-between px-5 py-5 select-none md:hidden">
         <a 
           href="#home" 
           className="flex items-center cursor-pointer group"
@@ -163,16 +166,17 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
 
         <button
           onClick={onHireMeClick}
-          className="flex items-center space-x-1 px-4 py-2 rounded-xl bg-brand-orange text-white text-xs font-bold shadow-md shadow-brand-orange/15 hover:bg-brand-orange-hover active:scale-[0.98] transition-all duration-200 cursor-pointer"
+          aria-label="Contact Nagaraju"
+          className="flex shrink-0 items-center space-x-1 rounded-xl bg-brand-orange px-4 py-2 text-xs font-bold text-white shadow-md shadow-brand-orange/15 transition-all duration-200 hover:bg-brand-orange-hover active:scale-[0.98] cursor-pointer"
         >
           <span>Hire Me</span>
           <ArrowRight size={12} />
         </button>
       </header>
 
-      {/* Beautiful Floating Bottom Navigation Menu with Icons (ONLY FOR MOBILE) */}
-      <div className="sm:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[92%] pointer-events-auto">
-        <nav className={`flex items-center justify-between gap-1 p-1.5 rounded-full border backdrop-blur-xl shadow-2xl transition-all duration-300 ${
+      {/* Floating mobile navigation */}
+      <div className="fixed bottom-5 left-1/2 z-50 w-[92%] max-w-md -translate-x-1/2 pointer-events-auto md:hidden">
+        <nav aria-label="Mobile navigation" className={`flex items-center justify-between gap-0 overflow-hidden rounded-full border p-1.5 shadow-2xl backdrop-blur-xl transition-all duration-300 ${
           darkMode 
             ? "bg-black/80 border-neutral-800 text-gray-300 shadow-black/40" 
             : "bg-white/90 border-gray-200/50 text-neutral-dark shadow-gray-200/40"
@@ -186,12 +190,12 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`flex items-center justify-center rounded-full transition-all duration-300 group select-none relative ${
+                  aria-label={link.name}
+                  className={`flex h-9 w-9 items-center justify-center rounded-full transition-all duration-300 group select-none relative sm:h-[42px] sm:w-[42px] ${
                     isActive
                       ? "text-brand-orange bg-brand-orange/10 dark:bg-brand-orange/15 font-semibold"
                       : "text-gray-400 dark:text-gray-550 hover:text-brand-orange"
                   }`}
-                  style={{ width: "42px", height: "42px" }}
                 >
                   <Icon size={19} className="transition-transform duration-200 group-hover:scale-110 shrink-0" />
                   
@@ -208,12 +212,11 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
 
             <button
               onClick={() => setIsChatOpen(!isChatOpen)}
-              className={`flex items-center justify-center rounded-full transition-all duration-200 cursor-pointer relative ${
+              className={`flex h-9 w-9 items-center justify-center rounded-full transition-all duration-200 cursor-pointer relative sm:h-[42px] sm:w-[42px] ${
                 isChatOpen
                   ? "text-brand-orange bg-brand-orange/10 dark:bg-brand-orange/15 font-semibold"
                   : "text-gray-400 dark:text-gray-550 hover:text-brand-orange"
               }`}
-              style={{ width: "42px", height: "42px" }}
               aria-label="Toggle chat mobile"
             >
               <Bot size={19} className="transition-transform duration-200" />

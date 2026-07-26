@@ -34,28 +34,20 @@ export default function Contact({ darkMode }: ContactProps) {
     }
 
     setLoading(true);
-    
-    // Simulate real database write / save transaction
-    setTimeout(() => {
-      try {
-        // We log it in client-side localStorage to simulate high operational state and safe persistence
-        const existingMessages = JSON.parse(localStorage.getItem("portfolio_messages") || "[]");
-        const newRecord = {
-          ...formData,
-          id: `msg-${Date.now()}`,
-          timestamp: new Date().toISOString()
-        };
-        existingMessages.push(newRecord);
-        localStorage.setItem("portfolio_messages", JSON.stringify(existingMessages));
 
-        setSubmitted(true);
-        setFormData({ firstName: "", lastName: "", email: "", message: "" });
-      } catch (err) {
-        setErrorMsg("Failed to deliver submission. Please retry.");
-      } finally {
-        setLoading(false);
-      }
-    }, 1200);
+    const senderName = [formData.firstName, formData.lastName].filter(Boolean).join(" ");
+    const subject = `Portfolio enquiry from ${senderName}`;
+    const body = [
+      `Name: ${senderName}`,
+      `Email: ${formData.email}`,
+      "",
+      formData.message,
+    ].join("\n");
+
+    window.location.href = `mailto:nagarajuporalla13@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setSubmitted(true);
+    setFormData({ firstName: "", lastName: "", email: "", message: "" });
+    setLoading(false);
   };
 
   return (
@@ -79,6 +71,9 @@ export default function Contact({ darkMode }: ContactProps) {
               }`}>
                 Let's discuss how we can build something amazing together.
               </p>
+              <p className={`text-sm ${darkMode ? "text-gray-400" : "text-neutral-muted"}`}>
+                Prefer email? <a className="font-semibold text-brand-orange hover:underline" href="mailto:nagarajuporalla13@gmail.com">nagarajuporalla13@gmail.com</a>
+              </p>
             </div>
 
             {/* Error notifications */}
@@ -98,6 +93,8 @@ export default function Contact({ darkMode }: ContactProps) {
             {/* Form */}
             {submitted ? (
               <motion.div
+                role="status"
+                aria-live="polite"
                 initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 className={`p-8 rounded-3xl border text-center flex flex-col items-center justify-center space-y-4 ${
@@ -107,10 +104,16 @@ export default function Contact({ darkMode }: ContactProps) {
                 <div className="p-4 rounded-full bg-emerald-100 text-emerald-600">
                   <Check size={36} />
                 </div>
-                <h3 className="text-xl font-extrabold tracking-tight">Message Delivered!</h3>
+                <h3 className="text-xl font-extrabold tracking-tight">Your email draft is ready</h3>
                 <p className={`text-sm max-w-sm ${darkMode ? "text-gray-400" : "text-neutral-muted"}`}>
-                  Thank you for reaching out, your message has been saved in local state. Nagaraju's AI Assistant has also categorized this and will reply immediately if you chat with it.
+                  Your email app should open with a pre-filled message. Send it to contact Nagaraju, or email him directly if no mail app opens.
                 </p>
+                <a
+                  href="mailto:nagarajuporalla13@gmail.com"
+                  className="text-sm font-bold text-brand-orange hover:underline"
+                >
+                  Email Nagaraju directly
+                </a>
                 <button
                   onClick={() => setSubmitted(false)}
                   className="px-6 py-2 rounded-xl border border-gray-200 dark:border-gray-800 text-xs font-bold hover:text-brand-orange hover:border-brand-orange transition-colors cursor-pointer"
@@ -192,12 +195,12 @@ export default function Contact({ darkMode }: ContactProps) {
                   {loading ? (
                     <>
                       <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
-                      <span>Shipping Message...</span>
+                      <span>Preparing email...</span>
                     </>
                   ) : (
                     <>
                       <MessageSquare size={16} />
-                      <span>Send Message</span>
+                      <span>Open Email Draft</span>
                     </>
                   )}
                 </button>

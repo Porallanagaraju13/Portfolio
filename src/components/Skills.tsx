@@ -11,22 +11,22 @@ export default function Skills({ darkMode }: SkillsProps) {
     {
       title: "AI & ML",
       category: "ai",
-      skills: ["AI Agents", "NLP", "Generative AI", "Deep Learning", "Supervised & Unsupervised Learning"],
+      skills: ["AI Agents", "NLP", "Generative AI", "Deep Learning", "TensorFlow & scikit-learn"],
     },
     {
       title: "Languages & Web",
       category: "languages",
-      skills: ["Java", "JavaScript", "Python", "C", "PHP", "HTML / CSS / WordPress"],
+      skills: ["Python", "JavaScript", "TypeScript", "Java", "React / Next.js", "HTML / CSS"],
     },
     {
-      title: "Databases",
+      title: "Data & BI",
       category: "databases",
-      skills: ["MySQL", "PostgreSQL"],
+      skills: ["Power BI", "Pandas & NumPy", "MySQL", "PostgreSQL"],
     },
     {
       title: "Tools & Concepts",
       category: "tools",
-      skills: ["n8n & LLMs", "Git & GitHub", "Hostinger / GoDaddy / Namecheap", "OOP / SDLC / Debugging"],
+      skills: ["n8n & LLMs", "Git & GitHub", "Docker & Cloud Run", "OOP / SDLC / Debugging"],
     },
   ];
 

@@ -7,6 +7,7 @@ export interface Project {
   details: string;
   demoType?: "resume" | "invoice" | "ecommerce" | "jobmatch" | "voiceai" | "ctxr";
   githubUrl?: string;
+  liveUrl?: string;
 }
 
 export interface SkillCategory {

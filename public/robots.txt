@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nagas.dev/sitemap.xml
