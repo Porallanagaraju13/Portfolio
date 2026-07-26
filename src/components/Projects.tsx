@@ -1,4 +1,4 @@
-import { UserPlus, Receipt, MessageSquare, ArrowRight, Play, CheckCircle2, Bot, Send } from "lucide-react";
+import { UserPlus, Receipt, MessageSquare, ArrowRight, Play, CheckCircle2, Bot, Send, Target, Mic, Zap, Github, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Project } from "../types";
@@ -9,7 +9,7 @@ interface ProjectsProps {
 }
 
 export default function Projects({ darkMode }: ProjectsProps) {
-  const [activeDemo, setActiveDemo] = useState<"resume" | "invoice" | "ecommerce" | null>(null);
+  const [activeDemo, setActiveDemo] = useState<"resume" | "invoice" | "ecommerce" | "jobmatch" | "voiceai" | "ctxr" | null>(null);
 
   // Resume Simulator States
   const [resumeText, setResumeText] = useState("Alex Rivers\nExperience: 3 years building automated systems in Python.\nSkilled in: n8n pipelines, Docker container orchestration, PostgreSQL database design.\nGoal: Seeking AI Development roles.");
@@ -35,6 +35,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
       tags: ["n8n", "Gemini AI", "Google Sheets", "Gmail"],
       iconType: "pipeline",
       demoType: "resume",
+      githubUrl: "https://github.com/Porallanagaraju13",
       details: "A multi-stage agentic recruiter pipeline. Automates CV processing by scanning intakes, scoring resumes via Gemini AI, uploading selected CVs to Google Drive, scheduling Google Meet interviews, and notifying applicants and HR via Gmail."
     },
     {
@@ -44,16 +45,45 @@ export default function Projects({ darkMode }: ProjectsProps) {
       tags: ["Gemini Vision", "n8n", "Telegram Bot", "JavaScript"],
       iconType: "telegram",
       demoType: "invoice",
+      githubUrl: "https://github.com/Porallanagaraju13",
       details: "A smart Telegram bot that processes invoice images or PDFs. Leverages Gemini Vision to extract line items, auto-generates pharmacy codes with dosage, maps HSN & GST rates (CGST/SGST/IGST) according to Indian tax law, and outputs structured CSV files."
     },
     {
       id: "proj-3",
-      title: "Smart E-Commerce Price Chatbot",
+      title: "Smart E-Commerce Chatbot",
       description: "AI chatbot built with intent recognition, tokenization, lemmatization, and real-time price negotiation dialogues.",
       tags: ["Python", "NLTK", "scikit-learn", "Tkinter"],
       iconType: "chatbot",
       demoType: "ecommerce",
+      githubUrl: "https://github.com/Porallanagaraju13",
       details: "An AI negotiation chatbot trained on JSON dialogue datasets. Utilizes NLTK and scikit-learn for intent recognition, incorporating custom tokenization and lemmatization, with an interactive Tkinter graphical interface."
+    },
+    {
+      id: "proj-4",
+      title: "JobMatch AI Platform",
+      description: "Full-stack AI job matching platform featuring durable Inngest event workflows, automated resume extraction, job discovery, and Stripe billing.",
+      tags: ["Next.js", "TypeScript", "Supabase", "Inngest", "Stripe"],
+      iconType: "jobmatch",
+      githubUrl: "https://github.com/Porallanagaraju13/Job-Match",
+      details: "A comprehensive SaaS platform that automates job discovery and resume parsing. Built with Next.js App Router, Supabase RLS, and Inngest background event processing."
+    },
+    {
+      id: "proj-5",
+      title: "VgrowVoice AI Receptionist",
+      description: "Real-time Voice AI receptionist & lead capture SaaS achieving sub-second latency via Gemini Multimodal Live WebSocket API & Twilio Streams.",
+      tags: ["Next.js", "Gemini Live API", "Twilio", "Supabase", "WebSocket"],
+      iconType: "voiceai",
+      githubUrl: "https://github.com/Porallanagaraju13/Vgrow-Voice-AI",
+      details: "Autonomous voice AI agent handling inbound calls, lead campaign form call-backs, appointment scheduling, and multilingual conversations (English, Telugu, Hindi)."
+    },
+    {
+      id: "proj-6",
+      title: "CTXR Engine & Extension",
+      description: "Production-ready document normalizer & prompt optimization engine delivering 40-70% token savings with a Manifest V3 Chrome Extension.",
+      tags: ["Python", "FastAPI", "Gemini 2.0 Flash", "Chrome Extension", "Cloud Run"],
+      iconType: "ctxr",
+      githubUrl: "https://github.com/Porallanagaraju13/CTXR",
+      details: "7-stage prompt compression & GFM markdown document normalizer for PDFs, DOCX, and PPTX with inline ChatGPT/Claude/Gemini Chrome extension optimization."
     }
   ];
 
@@ -147,15 +177,19 @@ export default function Projects({ darkMode }: ProjectsProps) {
           <p className={`text-sm sm:text-base ${
             darkMode ? "text-gray-400" : "text-neutral-muted"
           }`}>
-            A showcase of AI-driven solutions and technical R&D.
+            A showcase of AI-driven SaaS solutions, automated pipelines, and technical R&D.
           </p>
         </div>
 
         {/* Project Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((proj, idx) => {
-            const isResume = proj.id === "proj-1";
-            const isInvoice = proj.id === "proj-2";
+            const isResume = proj.iconType === "pipeline";
+            const isInvoice = proj.iconType === "telegram";
+            const isChatbot = proj.iconType === "chatbot";
+            const isJobMatch = proj.iconType === "jobmatch";
+            const isVoiceAI = proj.iconType === "voiceai";
+            const isCTXR = proj.iconType === "ctxr";
             
             return (
               <div key={proj.id} className="h-full">
@@ -164,9 +198,11 @@ export default function Projects({ darkMode }: ProjectsProps) {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-80px" }}
-                    transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
-                    onClick={() => setActiveDemo(activeDemo === proj.demoType ? null : proj.demoType)}
-                    className={`p-6 rounded-[28px] border flex flex-col justify-between h-full transition-all duration-300 cursor-pointer ${
+                    transition={{ duration: 0.5, delay: idx * 0.08, ease: "easeOut" }}
+                    onClick={() => proj.demoType && setActiveDemo(activeDemo === proj.demoType ? null : proj.demoType)}
+                    className={`p-6 rounded-[28px] border flex flex-col justify-between h-full transition-all duration-300 ${
+                      proj.demoType ? "cursor-pointer" : ""
+                    } ${
                       darkMode ? "bg-[#1C1C1E] border-neutral-800" : "bg-white border-[#EDEDED]"
                     } ${
                       activeDemo === proj.demoType
@@ -179,31 +215,52 @@ export default function Projects({ darkMode }: ProjectsProps) {
                     {/* Top Content Area */}
                     <div className="space-y-5">
                       {/* Premium gradient header icon box */}
-                      <div className={`w-full aspect-[16/10] rounded-[20px] flex items-center justify-center ${
+                      <div className={`w-full aspect-[16/10] rounded-[20px] flex items-center justify-center relative overflow-hidden ${
                         isResume
-                          ? darkMode 
-                            ? "bg-gradient-to-br from-[#3D2517]/80 to-[#1A1D27]/80" 
-                            : "bg-gradient-to-br from-[#FFF2EA] to-[#E9EDF5]"
+                          ? darkMode ? "bg-gradient-to-br from-[#3D2517]/80 to-[#1A1D27]/80" : "bg-gradient-to-br from-[#FFF2EA] to-[#E9EDF5]"
                           : isInvoice
-                            ? darkMode 
-                              ? "bg-gradient-to-br from-[#1E2835]/80 to-[#211E2D]/80" 
-                              : "bg-gradient-to-br from-[#EBF3FC] to-[#EEEDFA]"
-                            : darkMode 
-                              ? "bg-gradient-to-br from-[#1A2E26]/80 to-[#1E222C]/80" 
-                              : "bg-gradient-to-br from-[#E9F6F0] to-[#EAEFF9]"
+                            ? darkMode ? "bg-gradient-to-br from-[#1E2835]/80 to-[#211E2D]/80" : "bg-gradient-to-br from-[#EBF3FC] to-[#EEEDFA]"
+                            : isChatbot
+                              ? darkMode ? "bg-gradient-to-br from-[#1A2E26]/80 to-[#1E222C]/80" : "bg-gradient-to-br from-[#E9F6F0] to-[#EAEFF9]"
+                              : isJobMatch
+                                ? darkMode ? "bg-gradient-to-br from-[#2D1F3D]/80 to-[#1E1B2E]/80" : "bg-gradient-to-br from-[#F4EBFB] to-[#EAE5F8]"
+                                : isVoiceAI
+                                  ? darkMode ? "bg-gradient-to-br from-[#3D1A25]/80 to-[#291B24]/80" : "bg-gradient-to-br from-[#FDE8EF] to-[#F7E7F0]"
+                                  : darkMode ? "bg-gradient-to-br from-[#3A2B15]/80 to-[#262118]/80" : "bg-gradient-to-br from-[#FEF7E8] to-[#F9EED9]"
                       }`}>
                         {isResume && <UserPlus className="w-[42px] h-[42px] text-[#E08A4E] dark:text-[#FFA87D]" strokeWidth={1.2} />}
                         {isInvoice && <Receipt className="w-[42px] h-[42px] text-[#6A94C2] dark:text-[#99BEFA]" strokeWidth={1.2} />}
-                        {!isResume && !isInvoice && <MessageSquare className="w-[42px] h-[42px] text-[#68A78F] dark:text-[#82D9B7]" strokeWidth={1.2} />}
+                        {isChatbot && <MessageSquare className="w-[42px] h-[42px] text-[#68A78F] dark:text-[#82D9B7]" strokeWidth={1.2} />}
+                        {isJobMatch && <Target className="w-[42px] h-[42px] text-[#A855F7] dark:text-[#C084FC]" strokeWidth={1.2} />}
+                        {isVoiceAI && <Mic className="w-[42px] h-[42px] text-[#EC4899] dark:text-[#F472B6]" strokeWidth={1.2} />}
+                        {isCTXR && <Zap className="w-[42px] h-[42px] text-[#EAB308] dark:text-[#FACC15]" strokeWidth={1.2} />}
                       </div>
 
-                      {/* Text info */}
+                      {/* Text info & GitHub Link */}
                       <div className="space-y-2">
-                        <h3 className={`text-[17px] font-bold tracking-tight leading-snug whitespace-pre-line ${
-                          darkMode ? "text-[#F5F5F7]" : "text-[#1D1D1F]"
-                        }`}>
-                          {proj.title}
-                        </h3>
+                        <div className="flex items-start justify-between gap-2">
+                          <h3 className={`text-[17px] font-bold tracking-tight leading-snug ${
+                            darkMode ? "text-[#F5F5F7]" : "text-[#1D1D1F]"
+                          }`}>
+                            {proj.title}
+                          </h3>
+                          {proj.githubUrl && (
+                            <a
+                              href={proj.githubUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              title="View GitHub Repository"
+                              className={`p-1.5 rounded-full transition-colors ${
+                                darkMode 
+                                  ? "text-gray-400 hover:text-white hover:bg-neutral-800" 
+                                  : "text-gray-500 hover:text-black hover:bg-gray-100"
+                              }`}
+                            >
+                              <Github size={16} />
+                            </a>
+                          )}
+                        </div>
 
                         <p className={`text-[13px] leading-relaxed ${
                           darkMode ? "text-gray-400" : "text-[#6B7280]"

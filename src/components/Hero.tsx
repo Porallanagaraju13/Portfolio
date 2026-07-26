@@ -48,6 +48,15 @@ EXPERIENCE:
    * Contributed to fintech software development following structured engineering workflows alongside senior engineers.
 
 PROJECTS:
+* JobMatch AI Platform | Next.js, TypeScript, Supabase, Inngest, Stripe
+  - Full-stack AI job application & matching SaaS with durable Inngest event workflows, automated resume extraction, job source discovery, Stripe subscription billing, and Supabase RLS multi-tenant architecture.
+  - GitHub: https://github.com/Porallanagaraju13/Job-Match
+* VgrowVoice AI Receptionist | Next.js, Gemini Multimodal Live API, Twilio, Supabase, WebSocket
+  - Real-time Voice AI receptionist & lead capture SaaS achieving sub-second latency via Gemini Multimodal Live WebSocket API & Twilio Media Streams; supports inbound/outbound calls, appointment scheduling, and multilingual conversations (English, Telugu, Hindi).
+  - GitHub: https://github.com/Porallanagaraju13/Vgrow-Voice-AI
+* CTXR Engine & Chrome Extension | Python, FastAPI, Gemini 2.0 Flash, Chrome Manifest V3, Docker, Cloud Run
+  - Production-ready 7-stage prompt optimization engine & document normalizer (PDFs, DOCX, PPTX, Images) delivering 40-70% token savings with inline Chrome Extension for ChatGPT, Claude & Gemini.
+  - GitHub: https://github.com/Porallanagaraju13/CTXR
 * AI HR Recruitment Pipeline | n8n, Gemini AI, Gmail, Google Sheets, Drive, Calendar
   - End-to-end automated recruitment: form intake → Gemini resume scoring → shortlist/reject → Drive CV upload → Calendar interview with Meet link → Gmail notifications for candidate & HR, all tracked in Google Sheets.
 * Telegram Invoice Processing Agent | n8n, Gemini Vision, Telegram Bot, JavaScript

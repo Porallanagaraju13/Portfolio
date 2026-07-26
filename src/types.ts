@@ -3,9 +3,10 @@ export interface Project {
   title: string;
   description: string;
   tags: string[];
-  iconType: "pipeline" | "telegram" | "chatbot";
+  iconType: "pipeline" | "telegram" | "chatbot" | "jobmatch" | "voiceai" | "ctxr";
   details: string;
-  demoType: "resume" | "invoice" | "ecommerce";
+  demoType?: "resume" | "invoice" | "ecommerce" | "jobmatch" | "voiceai" | "ctxr";
+  githubUrl?: string;
 }
 
 export interface SkillCategory {

@@ -32,9 +32,9 @@ export default function AIChatbot({ darkMode, isOpenState, setIsOpenState }: AIC
   // Quick prompt suggestions
   const presetPrompts = [
     "What is his tech stack?",
-    "Tell me about Cypherbit",
-    "Describe the HR Pipeline project",
-    "How do I reach him?"
+    "Tell me about VgrowVoice AI",
+    "What is CTXR Engine?",
+    "Tell me about JobMatch AI"
   ];
 
   // Auto-scroll on new message
@@ -70,18 +70,18 @@ export default function AIChatbot({ darkMode, isOpenState, setIsOpenState }: AIC
     const lower = userText.toLowerCase();
 
     if (lower.includes("hello") || lower.includes("hi ") || lower.startsWith("hi") || lower.includes("hey") || lower.includes("greetings")) {
-      return "Hi there! I am Nagaraju's AI Clone. 🤖 I am happy to guide you through his portfolio! Ask me about his tech stack, work experience at Cypherbit, automated pipelines, or certifications.";
+      return "Hi there! I am Nagaraju's AI Clone. 🤖 I am happy to guide you through his portfolio! Ask me about his tech stack, work experience at Cypherbit, VgrowVoice AI, JobMatch AI, CTXR Engine, or n8n automated pipelines.";
     }
 
     if (lower.includes("skill") || lower.includes("tech") || lower.includes("stack") || lower.includes("languages") || lower.includes("program")) {
       return "Nagaraju's core technology stack includes:\n\n" +
-        "• Languages: Java, JavaScript, Python, C, PHP\n" +
-        "• AI/ML: AI Agents, NLP, Generative AI, LLM Integration\n" +
-        "• Automation: n8n workflow pipelines\n" +
-        "• Databases: MySQL, PostgreSQL\n" +
-        "• Web & Deployment: HTML, CSS, WordPress, DNS configuration, and SSL setups (Hostinger, GoDaddy, Namecheap)\n" +
-        "• Tools: Git, GitHub\n\n" +
-        "He is highly skilled in object-oriented programming (OOP), SDLC, debugging, and building modular systems.";
+        "• Languages: Java, JavaScript, TypeScript, Python, C, PHP\n" +
+        "• AI/ML & Speech: Gemini Multimodal Live API, Gemini 2.0 Flash, AI Agents, NLP, Generative AI, LLM Integration\n" +
+        "• Automation & Orchestration: n8n workflow pipelines, Inngest durable workflows, Twilio Media Streams\n" +
+        "• Web & Frameworks: Next.js 14, React, FastAPI, Tailwind CSS, Zustand, Astro\n" +
+        "• Databases & Backend: MySQL, PostgreSQL, Supabase RLS\n" +
+        "• Infrastructure & Deployment: Docker, Google Cloud Run, Hostinger, GoDaddy, Namecheap, Git, GitHub\n\n" +
+        "He is highly skilled in object-oriented programming (OOP), SDLC, debugging, multi-tenant architectures, and building scalable modular systems.";
     }
 
     if (lower.includes("cypherbit") || lower.includes("founding") || lower.includes("current job") || lower.includes("current role")) {
@@ -99,6 +99,28 @@ export default function AIChatbot({ darkMode, isOpenState, setIsOpenState }: AIC
         "2. Web Developer Intern @ TruPricer (Pure In Fresh Foods Pvt Ltd) (February 2025 - February 2026): Managed high-traffic web domains, SSL certificates, and DNS settings on Hostinger, GoDaddy, and Namecheap; built optimized, SEO-friendly responsive landing pages and portals with HTML, CSS, JavaScript, and PHP.\n\n" +
         "3. Technical Support Intern @ Prasanta Communications (October 2024 - January 2025): Maintained server endpoints and developed dynamic frontend integrations using JavaScript and the Astro framework.\n\n" +
         "4. SDE Intern @ Bluestock Fintech (September 2024 - October 2024): Worked alongside core engineers developing secure financial technology software.";
+    }
+
+    if (lower.includes("vgrow") || lower.includes("voice") || lower.includes("receptionist") || lower.includes("twilio")) {
+      return "VgrowVoice AI is an Intelligent Voice Receptionist & Lead Capture SaaS built by Nagaraju:\n\n" +
+        "• Sub-Second Voice Latency: Powered by Google Gemini Multimodal Live API (BidiGenerateContent WebSocket) and Twilio Media Streams.\n" +
+        "• Autonomous Inbound & Outbound Calling: Handles incoming customer inquiries and instantly initiates callbacks upon ad lead form submission.\n" +
+        "• Features: Dynamic appointment scheduling, anti-hallucination guardrails, multilingual support (English, Telugu, Hindi), live call transcripts, and Supabase multi-tenant RLS.\n" +
+        "• GitHub Repo: https://github.com/Porallanagaraju13/Vgrow-Voice-AI";
+    }
+
+    if (lower.includes("jobmatch") || lower.includes("job-match") || lower.includes("job match") || lower.includes("inngest")) {
+      return "JobMatch AI (JobBuddy AI) is a full-stack AI job application & matching platform built by Nagaraju:\n\n" +
+        "• Tech Stack: Next.js App Router, TypeScript, Supabase (PostgreSQL + RLS), Inngest, Stripe, Tailwind CSS.\n" +
+        "• Key Features: Durable background workflows for resume extraction, scheduled job discovery across platforms, application preparation, multi-tenant database schema, private resume storage, and Stripe subscription sync.\n" +
+        "• GitHub Repo: https://github.com/Porallanagaraju13/Job-Match";
+    }
+
+    if (lower.includes("ctxr") || lower.includes("prompt engine") || lower.includes("normalizer") || lower.includes("chrome extension")) {
+      return "CTXR is a production-ready Document Normalizer & Prompt Optimization Engine built by Nagaraju:\n\n" +
+        "• Tech Stack: Python 3.12+, FastAPI, Google Gemini 2.0 Flash, Manifest V3 Chrome Extension, Docker, Google Cloud Run.\n" +
+        "• Core Features: 7-stage prompt compression delivering 40-70% token savings, GFM Markdown document normalizer (PDFs, DOCX, PPTX, Images), AI-Vision OCR, and inline '✨ Optimize' button injected directly into ChatGPT, Claude & Gemini prompt bars.\n" +
+        "• GitHub Repo: https://github.com/Porallanagaraju13/CTXR";
     }
 
     if (lower.includes("hr recruitment") || lower.includes("pipeline") || lower.includes("automated recruitment") || lower.includes("hr pipeline")) {
@@ -155,7 +177,7 @@ export default function AIChatbot({ darkMode, isOpenState, setIsOpenState }: AIC
         "You can also use the contact form at the bottom of this website to send a direct message straight to his inbox!";
     }
 
-    return "Thank you for asking! As Nagaraju's AI Clone, I can tell you that he is a dedicated Founding Engineer specializing in creating intelligent autonomous AI agents, automated n8n pipelines, and modular full-stack solutions. What can I help you discover about him?";
+    return "Thank you for asking! As Nagaraju's AI Clone, I can tell you that he is a dedicated Founding Engineer specializing in creating intelligent autonomous AI agents, real-time Voice AI receptionists (VgrowVoice AI), prompt optimization engines (CTXR), job matching SaaS (JobMatch AI), automated n8n pipelines, and modular full-stack solutions. What can I help you discover about him?";
   };
 
   const handleSendMessage = async (textToSend: string) => {
@@ -191,44 +213,33 @@ Nagaraju's Professional Bio:
 - Education:
   * Bachelor of Technology in Computer Science and Engineering @ Siddhartha Institute of Engineering and Technology (June 2021 - July 2025), CGPA: 7.33.
   * Intermediate Public Examination (MPC) @ Krishnaveni Junior College (June 2020 - March 2021), Marks: 900.
-- Achievements:
-  * Earned Prompt Design in Vertex AI, Explore Generative AI with Vertex AI Gemini API, and Build Real World AI Apps with Gemini & Imagen – Google Cloud Skills Boost badges.
-  * Completed Introduction to Generative AI (AWS Educate) and Journey to Cloud: Envisioning Your Solution (IBM SkillsBuild).
-- Certifications:
-  * Foundations of Artificial Intelligence Internship (Microsoft | Edunet Foundation | AICTE, 2025)
-  * Web Developer– DNS Management & Server Deployment (TruPricer, 2025)
-  * Technical Internship– JavaScript, AI Tools, Astro Framework (Prasanta Communications, 2024–2025)
-  * Machine Learning Using Python Internship (YHills Edutech, 2024)
-  * Programming in Python: Core Concepts (LearnTube by CareerNinja, 2024)
 - Contact Info: Email: nagarajuporalla13@gmail.com, Phone: +91 9908425164, LinkedIn: https://www.linkedin.com/in/nagaraju-poralla-13aab2248/, GitHub: https://github.com/Porallanagaraju13
 
 Technical Skillset:
-- AI & ML: AI Agents, NLP, Supervised & Unsupervised Learning, Deep Learning, Generative AI.
-- Languages: Java, JavaScript, Python, C, PHP.
-- Web: HTML, CSS, WordPress.
-- Databases: MySQL, PostgreSQL.
-- Tools & Platforms: Git, GitHub, n8n, LLM, Hostinger, GoDaddy, Namecheap.
-- Concepts: OOP, SDLC, Debugging, Problem Solving.
+- AI, Speech & ML: Gemini Multimodal Live API, Gemini 2.0 Flash, AI Agents, NLP, Generative AI.
+- Languages: Java, JavaScript, TypeScript, Python, C, PHP.
+- Web & Frameworks: Next.js 14, React, FastAPI, HTML, CSS, Tailwind CSS, Zustand, Astro, WordPress.
+- Databases & Auth: MySQL, PostgreSQL, Supabase RLS.
+- Automation & Tools: n8n, Inngest, Twilio Media Streams, Docker, Google Cloud Run, Git, GitHub, Hostinger, GoDaddy, Namecheap.
 
 Key Projects Featured:
-1. AI HR Recruitment Pipeline:
-   - Stack: n8n, Gemini AI, Gmail, Google Sheets, Drive, Calendar.
-   - Purpose: End-to-end automated recruitment: form intake → Gemini resume scoring → shortlist/reject → Drive CV upload → Calendar interview with Meet link → Gmail notifications.
-2. Telegram Invoice Processing Agent:
-   - Stack: n8n, Gemini Vision, Telegram Bot, JavaScript.
-   - Purpose: Bot accepting invoice images/PDFs; uses Gemini Vision to extract line items, auto-generate pharmacy codes, map HSN & GST rates (CGST/SGST/IGST), and deliver structured CSV.
-3. Smart E-Commerce Price Negotiation Chatbot:
-   - Stack: Python, NLTK, scikit-learn, Tkinter.
-   - Purpose: AI chatbot for intent recognition with tokenization/lemmatization on JSON training data with real-time dialogue management.
-4. Underwater Image Enhancement with MSRAN:
-   - Stack: Python, TensorFlow, CNN.
-   - Purpose: Image restoration model using MSRAN with multi-scale feature extraction and attention mechanisms.
+1. JobMatch AI Platform (https://github.com/Porallanagaraju13/Job-Match):
+   - Full-stack AI job matching platform with Next.js, Supabase, Inngest durable workflows, and Stripe billing.
+2. VgrowVoice AI Receptionist (https://github.com/Porallanagaraju13/Vgrow-Voice-AI):
+   - Real-time sub-second latency Voice AI receptionist & lead capture SaaS using Gemini Multimodal Live WebSocket API & Twilio Streams.
+3. CTXR Engine & Chrome Extension (https://github.com/Porallanagaraju13/CTXR):
+   - 7-stage prompt optimization engine & document normalizer (FastAPI, Gemini 2.0 Flash, Docker, Cloud Run) with Manifest V3 Chrome Extension.
+4. AI HR Recruitment Pipeline:
+   - n8n automated recruitment: form intake → Gemini resume scoring → shortlist → Drive upload → Calendar interview with Meet link → Gmail.
+5. Telegram Invoice Processing Agent:
+   - Telegram Bot with Gemini Vision to extract invoice line items, map HSN & GST rates, and export CSV.
+6. Smart E-Commerce Price Negotiation Chatbot:
+   - Python NLTK & scikit-learn intent recognition with Tkinter dialogue GUI.
 
 Guidelines for your responses:
-- Tone: Extremely smart, conversational, helpful, confident, and professional. Avoid sounding robotic, dry, or over-the-top promotional.
-- Speak in the FIRST PERSON on behalf of Nagaraju's portfolio ("As Nagaraju's AI Assistant, I can tell you...", "Nagaraju enjoys..."). Alternatively, you can speak as Nagaraju's personal assistant.
-- Give concise answers. If a user asks about projects, draw detail from the featured projects list.
-- Feel free to write code examples or explain AI concepts if the visitor asks tech questions.
+- Tone: Extremely smart, conversational, helpful, confident, and professional. Avoid sounding robotic or dry.
+- Speak in the FIRST PERSON on behalf of Nagaraju's portfolio ("As Nagaraju's AI Assistant, I can tell you...", "Nagaraju enjoys...").
+- Give concise answers. Highlight his latest projects (VgrowVoice AI, CTXR, JobMatch AI) when relevant.
 `;
 
         const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
