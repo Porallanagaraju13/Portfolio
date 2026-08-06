@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Production AI system design workflow</title>
+  <desc id="desc">A nine-step workflow from business problem to continuous improvement.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fffaf3"/><stop offset="1" stop-color="#effcf9"/></linearGradient>
+    <linearGradient id="line" x1="0" x2="1"><stop stop-color="#ff8a00"/><stop offset="1" stop-color="#00a896"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#1f2937" flood-opacity=".09"/></filter>
+  </defs>
+  <rect width="1200" height="720" rx="34" fill="url(#bg)"/>
+  <text x="70" y="83" fill="#111827" font-family="Arial, sans-serif" font-size="34" font-weight="700">From idea to a production AI system</text>
+  <text x="70" y="119" fill="#64748b" font-family="Arial, sans-serif" font-size="18">Every step creates evidence for the next decision.</text>
+  <path d="M142 302 H1058" stroke="url(#line)" stroke-width="7" stroke-linecap="round" opacity=".25"/>
+  <path d="M142 302 H1058" stroke="url(#line)" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 10"/>
+  <g filter="url(#shadow)" font-family="Arial, sans-serif" text-anchor="middle">
+    <g transform="translate(75 220)"><rect width="150" height="164" rx="22" fill="#fff"/><circle cx="75" cy="45" r="25" fill="#fff0dd"/><text x="75" y="53" fill="#e26f00" font-size="23" font-weight="700">01</text><text x="75" y="101" fill="#172033" font-size="16" font-weight="700">Business</text><text x="75" y="124" fill="#172033" font-size="16" font-weight="700">problem</text><text x="75" y="148" fill="#64748b" font-size="12">Outcome &amp; user</text></g>
+    <g transform="translate(275 220)"><rect width="150" height="164" rx="22" fill="#fff"/><circle cx="75" cy="45" r="25" fill="#fff0dd"/><text x="75" y="53" fill="#e26f00" font-size="23" font-weight="700">02</text><text x="75" y="101" fill="#172033" font-size="16" font-weight="700">Product</text><text x="75" y="124" fill="#172033" font-size="16" font-weight="700">requirements</text><text x="75" y="148" fill="#64748b" font-size="12">Metrics &amp; limits</text></g>
+    <g transform="translate(475 220)"><rect width="150" height="164" rx="22" fill="#fff"/><circle cx="75" cy="45" r="25" fill="#e8fbf8"/><text x="75" y="53" fill="#008e80" font-size="23" font-weight="700">03</text><text x="75" y="101" fill="#172033" font-size="16" font-weight="700">Data</text><text x="75" y="124" fill="#172033" font-size="16" font-weight="700">strategy</text><text x="75" y="148" fill="#64748b" font-size="12">Freshness &amp; sources</text></g>
+    <g transform="translate(675 220)"><rect width="150" height="164" rx="22" fill="#fff"/><circle cx="75" cy="45" r="25" fill="#e8fbf8"/><text x="75" y="53" fill="#008e80" font-size="23" font-weight="700">04</text><text x="75" y="101" fill="#172033" font-size="16" font-weight="700">System</text><text x="75" y="124" fill="#172033" font-size="16" font-weight="700">architecture</text><text x="75" y="148" fill="#64748b" font-size="12">Workflow &amp; control</text></g>
+    <g transform="translate(875 220)"><rect width="150" height="164" rx="22" fill="#fff"/><circle cx="75" cy="45" r="25" fill="#eef2ff"/><text x="75" y="53" fill="#4f46e5" font-size="23" font-weight="700">05</text><text x="75" y="101" fill="#172033" font-size="16" font-weight="700">Evaluation</text><text x="75" y="124" fill="#172033" font-size="16" font-weight="700">&amp; guardrails</text><text x="75" y="148" fill="#64748b" font-size="12">Quality &amp; safety</text></g>
+  </g>
+  <path d="M950 432 C950 590 640 625 430 580 C315 555 250 505 248 434" fill="none" stroke="#00a896" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 10"/>
+  <path d="M249 434 l-11 23 23 -5" fill="#00a896"/>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <rect x="382" y="510" width="435" height="91" rx="22" fill="#172033"/>
+    <text x="600" y="548" fill="#fff" font-size="20" font-weight="700">Production → Monitoring → Optimization</text>
+    <text x="600" y="575" fill="#b8c5d6" font-size="14">Observe real use, learn, and continuously improve.</text>
+  </g>
+  <text x="76" y="658" fill="#e26f00" font-family="Arial, sans-serif" font-size="15" font-weight="700">Principle:</text><text x="158" y="658" fill="#64748b" font-family="Arial, sans-serif" font-size="15">the model is one component—not the whole product.</text>
+</svg>

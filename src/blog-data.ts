@@ -12,172 +12,83 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: "building-ai-powered-portfolio",
-    title: "Building an AI-Powered Portfolio with Gemini & React",
-    date: "2026-07-28",
-    readTime: "6 min read",
-    tags: ["AI", "React", "Gemini"],
+    slug: "ai-system-design-from-idea-to-production",
+    title: "AI System Design: From Idea to Production",
+    date: "2026-08-06",
+    readTime: "12 min read",
+    tags: ["AI Systems", "RAG", "Production"],
     excerpt:
-      "How I integrated Google Gemini into my personal portfolio to create a conversational AI assistant that knows everything about my work.",
-    coverEmoji: "🤖",
-    coverGradient: "from-orange-500 to-rose-500",
+      "A practical framework for turning an AI idea into a reliable production system—with retrieval, evaluation, guardrails, human review, and observability.",
+    coverEmoji: "🧠",
+    coverGradient: "from-orange-500 via-amber-500 to-teal-500",
     content: `
-<h2>Why an AI Chatbot?</h2>
-<p>Most developer portfolios are static — a list of projects, a skills table, a contact form. I wanted something that felt alive. So I integrated <strong>Google Gemini</strong> directly into my portfolio to create a conversational assistant that can answer questions about my experience, projects, and skills in real time.</p>
+<p class="blog-lead">An impressive model demo is not yet a production AI system. Production quality comes from the system around the model: clear goals, reliable data, retrieval, validation, human oversight, and a feedback loop that keeps improving the experience.</p>
 
-<h2>The Architecture</h2>
-<p>The system has three layers:</p>
+<h2>Start with the business workflow, not the model</h2>
+<p>“We need an LLM” and “we need RAG” are technology choices, not product requirements. Begin with the user’s workflow: what they need to accomplish, the information required, the mistakes that are unacceptable, the response-time target, and the cost budget.</p>
+<p>A useful requirement is measurable: <strong>reduce claim review time from 20 minutes to under 5 minutes while escalating uncertain cases to a reviewer.</strong> That gives every design decision a target.</p>
+
+<div class="blog-callout"><strong>Measure three things together.</strong> Business outcomes (time saved, completion, cost), AI quality (accuracy, faithfulness, retrieval quality), and operations (latency, availability, errors, token use).</div>
+
+<h2>The production lifecycle</h2>
+<p>The following workflow keeps the design grounded. Each stage answers a different engineering question, and monitoring feeds evidence back into the next iteration.</p>
+<figure class="blog-infographic">
+  <img src="/assets/ai-system-workflow.svg" alt="AI system workflow from business problem through requirements, data, architecture, evaluation, guardrails, production, monitoring and optimization, with a continuous-improvement loop." />
+  <figcaption>Design the system as a loop, not as a one-time model selection.</figcaption>
+</figure>
+
+<h2>Choose the smallest useful level of autonomy</h2>
+<p>AI can assist a human, react to a request, act proactively when an event occurs, or autonomously plan and use tools. More autonomy also creates more failure paths, so it should be a product decision—not a default technical preference.</p>
+<p>My preferred progression is: <strong>prompt → RAG → deterministic workflow → tool calling → agent → multi-agent system.</strong> Move forward only when evaluation shows that the extra complexity solves a real problem.</p>
+
+<h2>Build a data strategy before selecting a model</h2>
+<p>Identify where the knowledge lives: documents, databases, APIs, tickets, images, logs, or live application data. The update rate matters. Static policies may be indexed periodically, while inventory, transactions, and schedules should usually be retrieved from a live source.</p>
+<p>For document-heavy use cases, use an ingestion pipeline: extract text, clean it, chunk it, enrich chunks with metadata, generate embeddings, and store the result in a vector database. Metadata such as source, section, page, document type, and last-updated time makes filtering, citations, evaluation, and debugging substantially stronger.</p>
+
+<h2>Retrieval should give the model evidence</h2>
+<p>RAG retrieves the few relevant passages for a question and includes them in the prompt. It is more efficient and auditable than sending every document to the model. For enterprise search, hybrid retrieval is often stronger than vector search alone:</p>
 <ul>
-  <li><strong>Frontend</strong> — A React 19 chat component built with Framer Motion animations and streaming message rendering.</li>
-  <li><strong>Backend proxy</strong> — An Express.js server that forwards requests to the Gemini API, keeping my API key safe on the server side.</li>
-  <li><strong>Context injection</strong> — A system prompt containing structured information about my projects, skills, and experience, which grounds Gemini in accurate, personal details.</li>
+  <li><strong>Semantic search</strong> finds conceptually similar passages—even when wording differs.</li>
+  <li><strong>Keyword search</strong> handles IDs, codes, acronyms, drug names, and exact legal terms.</li>
+  <li><strong>Fusion + reranking</strong> combines fast candidates, then selects the most relevant context for the model.</li>
 </ul>
 
-<h2>Challenges I Solved</h2>
-<p>The trickiest part was streaming. Gemini supports SSE (Server-Sent Events) for token-by-token streaming, which gives the AI a "typing" feel. Getting that to work seamlessly with React state — without flicker or double renders — took some careful use of <code>useRef</code> alongside <code>useState</code>.</p>
+<h2>A reference architecture for production</h2>
+<p>The architecture below makes the LLM one component in a controlled system. Requests are authenticated, inspected before the model call, grounded with retrieval or tools, returned as structured data, and checked again before the application acts.</p>
+<figure class="blog-infographic">
+  <img src="/assets/ai-production-architecture.svg" alt="Production AI architecture showing client and API gateway flowing through authentication, input guardrails, workflow orchestration, retrieval, LLM and tools, structured output, output guardrails, confidence rules, application or human review, observability, evaluation and optimization." />
+  <figcaption>Guardrails, human review, and observability are first-class parts of the architecture.</figcaption>
+</figure>
 
-<h2>What I Learned</h2>
-<p>Injecting well-structured context into a system prompt makes a massive difference. When I gave Gemini a plain paragraph about my work, answers were generic. When I switched to structured markdown with headers for each project, the quality jumped dramatically.</p>
-
-<p>If you're building a personal AI assistant, spend 80% of your time on the system prompt — it's the highest-leverage investment you can make.</p>
-
-<h2>Try It Yourself</h2>
-<p>The chatbot is live on this very portfolio — click the bot icon in the bottom navigation bar and ask it anything about my work!</p>
-`,
-  },
-  {
-    slug: "react-19-features-deep-dive",
-    title: "React 19 Features That Changed How I Write Components",
-    date: "2026-06-15",
-    readTime: "8 min read",
-    tags: ["React", "JavaScript", "Frontend"],
-    excerpt:
-      "A practical look at React 19's new hooks, the Actions API, and how they simplify async state management patterns I used to solve with Redux.",
-    coverEmoji: "⚛️",
-    coverGradient: "from-cyan-500 to-blue-500",
-    content: `
-<h2>React 19 — A Genuine Step Forward</h2>
-<p>After years of incremental updates, React 19 landed with features that genuinely changed how I structure components. Here are the three that matter most to me day-to-day.</p>
-
-<h2>1. useActionState — Goodbye, Loading Booleans</h2>
-<p>Before React 19, every form submission looked like this:</p>
-<pre><code>const [loading, setLoading] = useState(false);
-const [error, setError] = useState(null);
-
-async function handleSubmit(e) {
-  setLoading(true);
-  try { await submit(data); } 
-  catch (err) { setError(err.message); }
-  finally { setLoading(false); }
+<h2>Make outputs predictable and decisions reviewable</h2>
+<p>Free-form prose is good for a person; software needs a contract. Return validated, structured data such as a decision, confidence score, reason, and evidence. The application can then route the result reliably.</p>
+<pre><code>{
+  "decision": "human_review",
+  "confidence": 0.72,
+  "reason": "Required clinical evidence is incomplete.",
+  "evidence": ["clinical-guidelines.pdf#page=42"]
 }</code></pre>
+<p>Use confidence and deterministic rules to route high-confidence cases to the application, uncertain cases to a review queue, and risky cases to a specialist. Human decisions are not merely a fallback: they become valuable evaluation data for the next iteration.</p>
 
-<p>With <code>useActionState</code>, that collapses to:</p>
-<pre><code>const [state, action, isPending] = useActionState(submitAction, initialState);</code></pre>
+<h2>Evaluate before deployment, observe after it</h2>
+<p>Build an evaluation dataset early. For each representative task, capture the question, expected outcome, expected sources, and relevant chunks. Measure retrieval independently (for example, recall@K and precision@K), then assess generation quality, faithfulness, citations, latency, cost, and end-to-end success.</p>
+<p>After deployment, collect traces, logs, metrics, guardrail failures, empty retrievals, human escalations, overrides, and user feedback. A high human-override rate is a particularly clear signal that something is wrong, even if offline results looked good.</p>
 
-<p>The pending state, error handling, and optimistic updates are all handled by React. This eliminated an entire class of bugs from my forms.</p>
+<h2>Optimize only after the baseline works</h2>
+<p>First prove the workflow and evaluation baseline. Then improve the dimension that matters: prompts, chunking, metadata, hybrid search, reranking, structured outputs, caching, batching, routing simple tasks to smaller models, retries, timeouts, and fallbacks.</p>
 
-<h2>2. use() for Promises</h2>
-<p>The new <code>use()</code> hook lets you read a Promise's resolved value inside a component, suspending rendering until it resolves. Combined with React's Suspense boundaries, data fetching has never been cleaner.</p>
-
-<h2>3. Server Components (via frameworks)</h2>
-<p>While not exclusive to React 19, the framework-level adoption of Server Components has matured significantly. Moving data-fetching logic to the server reduces client bundle size and eliminates loading spinners for initial renders.</p>
-
-<h2>My Verdict</h2>
-<p>React 19 doesn't reinvent the wheel — it removes the friction that accumulated over years of "workarounds." If you're still on React 17 or 18, upgrading is well worth the afternoon it takes.</p>
-`,
-  },
-  {
-    slug: "from-student-to-developer-journey",
-    title: "From Student to Developer: Lessons From My First Year in Tech",
-    date: "2026-05-02",
-    readTime: "5 min read",
-    tags: ["Career", "Learning", "Developer Life"],
-    excerpt:
-      "The honest, unfiltered story of what my first year as a professional developer actually looked like — the wins, the imposter syndrome, and the habits that helped.",
-    coverEmoji: "🚀",
-    coverGradient: "from-violet-500 to-purple-600",
-    content: `
-<h2>It Starts With Imposter Syndrome</h2>
-<p>Nobody warns you that your first week as a professional developer involves staring at a massive codebase, understanding roughly 10% of it, and wondering how you ever got hired. That was me. And talking to other developers, it's almost everyone's experience.</p>
-
-<p>The trick I found: <strong>don't try to understand everything at once</strong>. Pick one thread — one bug, one feature, one file — and pull on it. Understanding expands outward naturally from there.</p>
-
-<h2>The Habits That Actually Helped</h2>
-<ul>
-  <li><strong>Read code every day.</strong> Not write — read. Other people's code is the fastest way to level up your vocabulary as a developer.</li>
-  <li><strong>Ship something small every week.</strong> Big projects feel good to plan. Small, shipped features feel good to do. Build the habit of finishing.</li>
-  <li><strong>Write about what you learn.</strong> The act of explaining a concept forces clarity in ways that just "knowing" it doesn't. (Hence this blog!)</li>
-</ul>
-
-<h2>The Myth of the Perfect Stack</h2>
-<p>I spent months trying to pick the "best" framework, the "right" state management library, the "optimal" CSS approach. It was procrastination dressed up as research.</p>
-
-<p>The best stack is the one you're currently building something with. Ship first, optimize later.</p>
-
-<h2>Looking Forward</h2>
-<p>A year in, I feel like I'm just getting started. The more I learn, the more I see how much there is to learn — and somehow that's more energizing than intimidating now. If you're early in your journey, hold on. It gets better.</p>
-`,
-  },
-  {
-    slug: "css-animations-without-libraries",
-    title: "Stunning CSS Animations Without a Single Library",
-    date: "2026-04-10",
-    readTime: "7 min read",
-    tags: ["CSS", "Frontend", "Design"],
-    excerpt:
-      "You don't need Framer Motion or GSAP for most animations. Here's how to create scroll-triggered, performant CSS animations that work in every browser.",
-    coverEmoji: "✨",
-    coverGradient: "from-emerald-400 to-teal-500",
-    content: `
-<h2>The Case for Native CSS Animations</h2>
-<p>Animation libraries are great — but they come with bundle cost, API surface to learn, and sometimes a loss of control. For many common UI animations, native CSS with a sprinkle of JavaScript is all you need.</p>
-
-<h2>Scroll-Triggered Animations with IntersectionObserver</h2>
-<p>The pattern I use most often:</p>
-<pre><code>/* CSS */
-.fade-in {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}</code></pre>
-
-<pre><code>// JS
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.15 });
-
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));</code></pre>
-
-<p>This pattern costs zero bytes in JavaScript bundle (it's browser-native) and is GPU-accelerated because we're only animating <code>opacity</code> and <code>transform</code> — properties that don't trigger layout recalculation.</p>
-
-<h2>Performance Rules to Live By</h2>
-<ul>
-  <li>Only animate <code>opacity</code> and <code>transform</code> — everything else forces repaints.</li>
-  <li>Add <code>will-change: transform</code> sparingly, only on elements that animate repeatedly.</li>
-  <li>Use <code>prefers-reduced-motion</code> to respect user accessibility settings.</li>
-</ul>
-
-<h2>When to Reach for a Library</h2>
-<p>Use a library when you need: complex sequencing, physics-based spring animations, layout animations (animating between positions when items reorder), or gesture-driven interactions. For everything else, CSS has you covered.</p>
+<h2>Final takeaway</h2>
+<p>Good AI engineering is system thinking. Start with the business problem, build the simplest architecture that can solve it, evaluate before adding complexity, keep people in the loop when risk requires it, and improve with production evidence. That is how an AI idea becomes a reliable product.</p>
 `,
   },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
-  return blogPosts.find((p) => p.slug === slug);
+  return blogPosts.find((post) => post.slug === slug);
 }
 
 export function getAllTags(): string[] {
   const tags = new Set<string>();
-  blogPosts.forEach((p) => p.tags.forEach((t) => tags.add(t)));
+  blogPosts.forEach((post) => post.tags.forEach((tag) => tags.add(tag)));
   return Array.from(tags).sort();
 }

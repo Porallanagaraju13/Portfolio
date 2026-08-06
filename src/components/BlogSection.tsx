@@ -51,7 +51,7 @@ export default function BlogSection({ darkMode }: BlogSectionProps) {
                 darkMode ? "text-gray-400" : "text-neutral-muted"
               }`}
             >
-              Articles on web development, AI, and the developer life.
+              A practical guide to designing reliable AI systems for production.
             </motion.p>
           </div>
 

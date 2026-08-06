@@ -75,7 +75,7 @@ export default function BlogPage({ darkMode }: BlogPageProps) {
                 darkMode ? "text-gray-400" : "text-neutral-muted"
               }`}
             >
-              Articles on web development, AI, career growth, and everything in between.
+              A focused note on designing reliable AI systems from first idea to production.
             </p>
           </motion.div>
         </div>

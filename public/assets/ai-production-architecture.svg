@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 890" role="img" aria-labelledby="title desc">
+  <title id="title">Production AI reference architecture</title>
+  <desc id="desc">A protected AI request flow with retrieval, language model and tools, output validation, human review and observability.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f8fafc"/><stop offset="1" stop-color="#fff8ef"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#1f2937" flood-opacity=".09"/></filter>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9z" fill="#94a3b8"/></marker>
+  </defs>
+  <rect width="1200" height="890" rx="34" fill="url(#bg)"/>
+  <text x="65" y="75" fill="#111827" font-family="Arial, sans-serif" font-size="34" font-weight="700">Reference architecture: controlled, observable AI</text>
+  <text x="65" y="110" fill="#64748b" font-family="Arial, sans-serif" font-size="18">Safety and measurement wrap the model call from end to end.</text>
+  <g font-family="Arial, sans-serif" text-anchor="middle" filter="url(#shadow)">
+    <g transform="translate(75 160)"><rect width="205" height="64" rx="17" fill="#172033"/><text x="102" y="39" fill="#fff" font-size="18" font-weight="700">Client / application</text></g>
+    <g transform="translate(355 160)"><rect width="205" height="64" rx="17" fill="#fff" stroke="#cbd5e1"/><text x="102" y="39" fill="#172033" font-size="18" font-weight="700">API gateway</text></g>
+    <g transform="translate(635 160)"><rect width="205" height="64" rx="17" fill="#fff0dd"/><text x="102" y="31" fill="#a95100" font-size="16" font-weight="700">Authentication</text><text x="102" y="50" fill="#a95100" font-size="16" font-weight="700">&amp; rate limits</text></g>
+    <g transform="translate(915 160)"><rect width="205" height="64" rx="17" fill="#ffe7e4"/><text x="102" y="31" fill="#be3f36" font-size="16" font-weight="700">Input guardrails</text><text x="102" y="50" fill="#be3f36" font-size="13">PII · policy · injection</text></g>
+  </g>
+  <g stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)"><path d="M280 192H345"/><path d="M560 192H625"/><path d="M840 192H905"/><path d="M1018 224V282H600"/></g>
+  <g font-family="Arial, sans-serif" text-anchor="middle" filter="url(#shadow)">
+    <rect x="440" y="280" width="320" height="76" rx="19" fill="#fff" stroke="#cbd5e1"/><text x="600" y="311" fill="#172033" font-size="19" font-weight="700">Workflow orchestrator</text><text x="600" y="336" fill="#64748b" font-size="14">deterministic steps &amp; routing</text>
+    <rect x="85" y="435" width="250" height="115" rx="22" fill="#e8fbf8"/><text x="210" y="472" fill="#007f73" font-size="18" font-weight="700">Retrieval system</text><text x="210" y="499" fill="#25645e" font-size="14">Hybrid search + reranker</text><text x="210" y="522" fill="#25645e" font-size="14">grounded context</text>
+    <rect x="475" y="435" width="250" height="115" rx="22" fill="#fff0dd"/><text x="600" y="482" fill="#a95100" font-size="23" font-weight="700">LLM layer</text><text x="600" y="511" fill="#9a5b20" font-size="14">reasoning + generation</text>
+    <rect x="865" y="435" width="250" height="115" rx="22" fill="#eef2ff"/><text x="990" y="472" fill="#4338ca" font-size="18" font-weight="700">Tool layer</text><text x="990" y="499" fill="#5750c5" font-size="14">approved external APIs</text><text x="990" y="522" fill="#5750c5" font-size="14">live application data</text>
+    <rect x="440" y="630" width="320" height="72" rx="19" fill="#fff" stroke="#cbd5e1"/><text x="600" y="660" fill="#172033" font-size="19" font-weight="700">Structured output</text><text x="600" y="684" fill="#64748b" font-size="14">schema, evidence, confidence</text>
+    <rect x="440" y="755" width="320" height="69" rx="19" fill="#ffe7e4"/><text x="600" y="784" fill="#be3f36" font-size="18" font-weight="700">Output guardrails + rules</text><text x="600" y="807" fill="#a55b55" font-size="13">validation · citations · risk checks</text>
+  </g>
+  <g stroke="#94a3b8" stroke-width="3" fill="none" marker-end="url(#arrow)"><path d="M600 356V405H210V425"/><path d="M600 356V425"/><path d="M600 356V405H990V425"/><path d="M335 492H465"/><path d="M735 492H855"/><path d="M210 550V585H600V620"/><path d="M600 550V620"/><path d="M990 550V585H600"/><path d="M600 702V745"/></g>
+  <g font-family="Arial, sans-serif" text-anchor="middle" filter="url(#shadow)">
+    <rect x="70" y="752" width="280" height="82" rx="20" fill="#172033"/><text x="210" y="784" fill="#fff" font-size="18" font-weight="700">Observability</text><text x="210" y="809" fill="#b8c5d6" font-size="13">traces · metrics · logs · cost</text>
+    <rect x="850" y="752" width="280" height="82" rx="20" fill="#172033"/><text x="990" y="784" fill="#fff" font-size="18" font-weight="700">Human review</text><text x="990" y="809" fill="#b8c5d6" font-size="13">uncertain or high-risk cases</text>
+  </g>
+  <g stroke="#00a896" stroke-width="3" fill="none" stroke-dasharray="8 8" marker-end="url(#arrow)"><path d="M440 789H350"/><path d="M760 789H850"/></g>
+</svg>
