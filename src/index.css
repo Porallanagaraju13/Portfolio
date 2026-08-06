@@ -66,3 +66,101 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(156, 163, 175, 0.6);
 }
+
+/* ────────────────────────────────────────
+   Blog post prose typography
+───────────────────────────────────────── */
+.prose-blog {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  max-width: 65ch;
+}
+.prose-blog h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+.prose-blog h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+.prose-blog p {
+  margin-bottom: 1.25rem;
+}
+.prose-blog ul,
+.prose-blog ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+.prose-blog li {
+  margin-bottom: 0.5rem;
+}
+.prose-blog strong {
+  font-weight: 700;
+}
+.prose-blog code {
+  font-family: var(--font-mono);
+  font-size: 0.82em;
+  padding: 0.15em 0.45em;
+  border-radius: 0.375rem;
+}
+.prose-blog pre {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+.prose-blog pre code {
+  background: transparent;
+  padding: 0;
+}
+
+/* Light prose colours */
+.light-prose {
+  color: #374151;
+}
+.light-prose h2,
+.light-prose h3 {
+  color: #111827;
+}
+.light-prose code {
+  background: #F3F4F6;
+  color: #E05300;
+}
+.light-prose pre {
+  background: #F3F4F6;
+  color: #374151;
+}
+.light-prose a {
+  color: #FF8A00;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Dark prose colours */
+.dark-prose {
+  color: #D1D5DB;
+}
+.dark-prose h2,
+.dark-prose h3 {
+  color: #F9FAFB;
+}
+.dark-prose code {
+  background: #1F2937;
+  color: #FBBF24;
+}
+.dark-prose pre {
+  background: #1F2937;
+  color: #D1D5DB;
+}
+.dark-prose a {
+  color: #FB923C;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

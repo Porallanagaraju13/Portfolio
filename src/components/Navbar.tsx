@@ -1,5 +1,6 @@
-import { Moon, Sun, ArrowRight, Briefcase, Home, User, Code, Folder, Mail, Bot } from "lucide-react";
+import { Moon, Sun, ArrowRight, Briefcase, Home, User, Code, Folder, Mail, Bot, BookOpen } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface NavbarProps {
   darkMode: boolean;
@@ -10,6 +11,7 @@ interface NavbarProps {
 }
 
 export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpen, setIsChatOpen }: NavbarProps) {
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState("home");
 
   // Intersection Observer to highlight current section as user scrolls
@@ -52,6 +54,8 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
     { name: "Projects", href: "#projects", icon: Folder, id: "projects" },
     { name: "Contact", href: "#contact", icon: Mail, id: "contact" },
   ];
+
+  const handleBlogClick = () => navigate("/blog");
 
   return (
     <>
@@ -108,6 +112,16 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
                 </a>
               );
             })}
+            {/* Blog link (navigates to /blog page) */}
+            <button
+              onClick={handleBlogClick}
+              className={`text-sm font-semibold tracking-wide transition-colors duration-200 relative group py-2 bg-transparent border-none cursor-pointer ${
+                darkMode ? "text-gray-300 hover:text-brand-orange" : "text-neutral-dark hover:text-brand-orange"
+              }`}
+            >
+              Blog
+              <span className="absolute bottom-0 left-0 h-[2px] bg-brand-orange transition-all duration-200 w-0 group-hover:w-full" />
+            </button>
           </nav>
 
           {/* Desktop Actions */}
@@ -207,7 +221,17 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
               );
             })}
 
-            {/* Embedded Chatbot Action inside Mobile Bottom Menu (Replaces theme switch) */}
+            {/* Blog button in mobile nav */}
+            <button
+              onClick={handleBlogClick}
+              className={`flex items-center justify-center rounded-full transition-all duration-200 cursor-pointer relative text-gray-400 dark:text-gray-550 hover:text-brand-orange`}
+              style={{ width: "42px", height: "42px" }}
+              aria-label="Go to Blog"
+            >
+              <BookOpen size={19} className="transition-transform duration-200 group-hover:scale-110 shrink-0" />
+            </button>
+
+            {/* Embedded Chatbot Action inside Mobile Bottom Menu */}
             <div className="w-[1px] h-5 bg-gray-200 dark:bg-neutral-800 mx-1 shrink-0"></div>
 
             <button

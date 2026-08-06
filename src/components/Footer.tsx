@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ShieldCheck, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface FooterProps {
   darkMode: boolean;
 }
 
 export default function Footer({ darkMode }: FooterProps) {
+  const navigate = useNavigate();
   const [privacyOpen, setPrivacyOpen] = useState(false);
 
   return (
@@ -45,6 +47,12 @@ export default function Footer({ darkMode }: FooterProps) {
             <a href="#projects" className="hover:text-brand-orange transition-colors">Work</a>
             <a href="#skills" className="hover:text-brand-orange transition-colors">Stack</a>
             <a href="#experience" className="hover:text-brand-orange transition-colors">Experience</a>
+            <button
+              onClick={() => navigate("/blog")}
+              className="hover:text-brand-orange transition-colors cursor-pointer bg-transparent border-none p-0 font-medium font-sans"
+            >
+              Blog
+            </button>
             <button
               onClick={() => setPrivacyOpen(true)}
               className="hover:text-brand-orange transition-colors cursor-pointer bg-transparent border-none p-0 font-medium font-sans"
