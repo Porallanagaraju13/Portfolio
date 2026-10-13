@@ -1,111 +1,96 @@
-import { Code2, Sparkles, Target, Zap } from "lucide-react";
+import { User } from "lucide-react";
 import { motion } from "motion/react";
+import Tilt3D from "./Tilt3D";
 
 interface AboutProps {
   darkMode: boolean;
 }
 
 export default function About({ darkMode }: AboutProps) {
-  const highlights = [
-    {
-      icon: Sparkles,
-      title: "AI Engineering",
-      description: "Building production AI agents with Gemini, Claude, and custom evaluation harnesses"
-    },
-    {
-      icon: Code2,
-      title: "Full-Stack Development",
-      description: "Next.js, React, TypeScript, Supabase, and modern serverless architectures"
-    },
-    {
-      icon: Zap,
-      title: "Workflow Automation",
-      description: "n8n pipelines, Inngest events, and intelligent process orchestration"
-    },
-    {
-      icon: Target,
-      title: "Problem Solving",
-      description: "Real-world solutions with measurable impact and clean user experiences"
-    }
+  // Stat blocks data
+  const stats = [
+    { value: "2+", label: "EXPERIENCE" },
+    { value: "10+", label: "PROJECTS" },
+    { value: "5+", label: "CERTS" },
   ];
 
   return (
-    <section id="about" className="relative py-24">
-      <div className="container mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
-        
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+    <section id="about" className="py-20 overflow-hidden">
+      <div className="container mx-auto px-4 md:px-8 max-w-5xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left: About Text */}
-          <div className="lg:col-span-7">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="space-y-6"
-            >
-              <div className="space-y-3">
-                <h2 className={`text-4xl font-black tracking-tight sm:text-5xl ${
-                  darkMode ? "text-gray-100" : "text-neutral-dark"
-                }`}>
-                  About <span className="text-brand-orange">Me</span>
-                </h2>
-                <div className={`h-1 w-20 rounded-full bg-gradient-to-r from-brand-orange to-transparent`} />
-              </div>
-
-              <div className="space-y-4">
-                <p className={`text-base leading-relaxed sm:text-lg ${
-                  darkMode ? "text-gray-300" : "text-gray-700"
-                }`}>
-                  I'm an <strong className="font-bold text-brand-orange">AI Engineer</strong> focused on building intelligent systems that work reliably in production. My work spans agent development, workflow automation, and full-stack applications.
-                </p>
-                
-                <p className={`text-base leading-relaxed sm:text-lg ${
-                  darkMode ? "text-gray-400" : "text-gray-600"
-                }`}>
-                  I've shipped AI agents that improved task success rates from <strong className="font-semibold">58.3% to 83.3%</strong>, built multilingual voice AI systems with sub-second latency, and created SaaS platforms that automate complex workflows end-to-end.
-                </p>
-
-                <p className={`text-base leading-relaxed sm:text-lg ${
-                  darkMode ? "text-gray-400" : "text-gray-600"
-                }`}>
-                  My approach: start with the user problem, build the simplest thing that solves it, measure what matters, and iterate based on real feedback.
-                </p>
-              </div>
-            </motion.div>
+          {/* Left layout: High-fidelity Vector illustration of Programmer with 3D Tilt */}
+          <div className="lg:col-span-5 flex justify-center relative">
+            <Tilt3D maxRotate={12} scale={1.04} className="w-full max-w-[340px] md:max-w-[380px]">
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8 }}
+                className="relative w-full aspect-square flex items-center justify-center rounded-3xl transition-all duration-300 bg-transparent p-0"
+              >
+                {/* Floating ambient glow specifically behind the avatar */}
+                <div className="absolute inset-6 rounded-full bg-brand-teal-light blur-3xl -z-10 animate-pulse"></div>
+                {/* Developer Image */}
+                <img
+                  src="./assets/avatar_about.png"
+                  alt="3D illustration of Nagaraju interacting with AI"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,168,150,0.2)] hover:scale-105 transition-transform duration-500 relative z-10"
+                  referrerPolicy="no-referrer"
+                />
+              </motion.div>
+            </Tilt3D>
           </div>
 
-          {/* Right: Highlight Cards */}
-          <div className="lg:col-span-5">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
-              {highlights.map((item, idx) => (
+          {/* Right layout: About Content */}
+          <div className="lg:col-span-7 flex flex-col space-y-6">
+            <div className="flex items-center space-x-2 text-brand-orange">
+              <User size={22} />
+              <h2 className="text-xl font-bold uppercase tracking-wider">About Me</h2>
+            </div>
+
+            <h3 className={`text-3xl font-extrabold tracking-tight ${
+              darkMode ? "text-gray-100" : "text-neutral-dark"
+            }`}>
+              Architecting the Next Era of Intelligent Automation
+            </h3>
+
+            <p className={`text-base sm:text-lg leading-relaxed ${
+              darkMode ? "text-gray-400" : "text-neutral-muted"
+            }`}>
+              I am an AI Enthusiast and Developer driven by a passion for solving complex, real-world challenges through technology. 
+              With deep expertise in Artificial Intelligence, Machine Learning, and web engineering, I architect intelligent solutions 
+              that seamlessly bridge the gap between human needs and high-powered, automated computation.
+            </p>
+
+            <p className={`text-base leading-relaxed ${
+              darkMode ? "text-gray-400" : "text-neutral-muted"
+            }`}>
+              My technical work focuses heavily on building robust multi-agent setups, creating advanced processing workflows on n8n, 
+              optimizing natural language storage with vector embedding configurations, and delivering flawless final app interfaces.
+            </p>
+
+            {/* Statistic Row */}
+            <div className="grid grid-cols-3 gap-6 pt-6 border-t border-gray-100 dark:border-gray-800">
+              {stats.map((stat, idx) => (
                 <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 20 }}
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className={`group flex items-start space-x-4 rounded-2xl border p-5 transition-all duration-300 hover:-translate-y-0.5 ${
-                    darkMode
-                      ? "border-gray-800 bg-gray-900/40 hover:border-gray-700 hover:bg-gray-900/60"
-                      : "border-gray-200 bg-white hover:border-brand-orange/20 hover:shadow-lg hover:shadow-brand-orange/5"
-                  }`}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.15, duration: 0.5 }}
+                  className="flex flex-col space-y-1"
                 >
-                  <div className={`rounded-xl p-3 transition-colors ${
-                    darkMode
-                      ? "bg-brand-orange/10 text-brand-orange group-hover:bg-brand-orange/15"
-                      : "bg-brand-orange/10 text-brand-orange group-hover:bg-brand-orange/15"
+                  <span className="text-3xl sm:text-4xl font-extrabold text-brand-orange tabular-nums">
+                    {stat.value}
+                  </span>
+                  <span className={`text-xs font-extrabold tracking-widest ${
+                    darkMode ? "text-gray-400" : "text-neutral-muted"
                   }`}>
-                    <item.icon size={20} strokeWidth={2} />
-                  </div>
-                  <div className="flex-1 space-y-1">
-                    <h3 className={`font-bold ${darkMode ? "text-gray-100" : "text-neutral-dark"}`}>
-                      {item.title}
-                    </h3>
-                    <p className={`text-sm leading-relaxed ${darkMode ? "text-gray-400" : "text-gray-600"}`}>
-                      {item.description}
-                    </p>
-                  </div>
+                    {stat.label}
+                  </span>
                 </motion.div>
               ))}
             </div>
