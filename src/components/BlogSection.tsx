@@ -28,8 +28,8 @@ export default function BlogSection({ darkMode }: BlogSectionProps) {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.15em] text-brand-orange mb-3">
-                <span className="w-5 h-[2px] bg-brand-orange inline-block rounded-full" />
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.15em] text-primary-500 mb-3">
+                <span className="w-5 h-[2px] bg-primary-500 inline-block rounded-full" />
                 From the Blog
               </span>
             </motion.div>
@@ -61,7 +61,7 @@ export default function BlogSection({ darkMode }: BlogSectionProps) {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
             onClick={() => navigate("/blog")}
-            className="flex items-center gap-2 text-sm font-bold text-brand-orange hover:gap-3 transition-all duration-200 shrink-0 group"
+            className="flex items-center gap-2 text-sm font-bold text-primary-500 hover:gap-3 transition-all duration-200 shrink-0 group"
           >
             All Posts
             <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -99,7 +99,7 @@ export default function BlogSection({ darkMode }: BlogSectionProps) {
                   {post.tags.slice(0, 2).map((tag) => (
                     <span
                       key={tag}
-                      className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-brand-orange/10 text-brand-orange"
+                      className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-primary-500/10 text-primary-500"
                     >
                       <Tag size={8} />
                       {tag}
@@ -108,7 +108,7 @@ export default function BlogSection({ darkMode }: BlogSectionProps) {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-base font-bold leading-snug group-hover:text-brand-orange transition-colors duration-200 line-clamp-2">
+                <h3 className="text-base font-bold leading-snug group-hover:text-primary-500 transition-colors duration-200 line-clamp-2">
                   {post.title}
                 </h3>
 
@@ -155,7 +155,7 @@ export default function BlogSection({ darkMode }: BlogSectionProps) {
         >
           <button
             onClick={() => navigate("/blog")}
-            className="flex items-center gap-2 px-6 py-3 rounded-xl border border-brand-orange text-brand-orange text-sm font-bold hover:bg-brand-orange hover:text-white transition-all duration-200 group"
+            className="flex items-center gap-2 px-6 py-3 rounded-xl border border-primary-500 text-primary-500 text-sm font-bold hover:bg-primary-500 hover:text-white transition-all duration-200 group"
           >
             View All Posts
             <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />

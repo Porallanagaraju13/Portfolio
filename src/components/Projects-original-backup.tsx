@@ -172,7 +172,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
           <h2 className={`text-3xl sm:text-4xl font-bold tracking-tight ${
             darkMode ? "text-gray-100" : "text-neutral-dark"
           }`}>
-            Featured <span className="text-brand-orange">Projects</span>
+            Featured <span className="text-primary-500">Projects</span>
           </h2>
           <p className={`text-sm sm:text-base ${
             darkMode ? "text-gray-400" : "text-neutral-muted"
@@ -203,7 +203,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
                       darkMode ? "bg-[#1C1C1E] border-neutral-800" : "bg-white border-[#EDEDED]"
                     } ${
                       activeDemo === proj.demoType
-                        ? "border-brand-orange/60 shadow-[0_12px_30px_-4px_rgba(255,138,0,0.12)]"
+                        ? "border-primary-500/60 shadow-[0_12px_30px_-4px_rgba(255,138,0,0.12)]"
                         : `shadow-[0_10px_30px_-5px_rgba(0,0,0,0.03)] hover:shadow-[0_18px_35px_-8px_rgba(0,0,0,0.07)] hover:-translate-y-0.5 ${
                             darkMode ? "hover:border-neutral-700" : "hover:border-[#D8D8D8]"
                           }`
@@ -294,7 +294,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
                             key={t} 
                             className={`text-[10px] font-bold px-3 py-1 rounded-full ${
                               isFirst
-                                ? `${darkMode ? "bg-brand-orange/15 text-brand-orange" : "bg-[#FFF4E7] text-[#FF8A00]"}`
+                                ? `${darkMode ? "bg-primary-500/15 text-primary-500" : "bg-[#FFF4E7] text-[#06b6d4]"}`
                                 : `${darkMode ? "bg-[#2A2A2D] text-[#A1A1AA]" : "bg-[#F4F4F5] text-[#71717A]"}`
                             }`}
                           >
@@ -309,7 +309,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
                         type="button"
                         onClick={() => setActiveDemo(activeDemo === proj.demoType ? null : proj.demoType)}
                         aria-expanded={activeDemo === proj.demoType}
-                        className="mt-5 flex items-center gap-2 self-start text-sm font-bold text-brand-orange transition-colors hover:text-brand-orange-hover"
+                        className="mt-5 flex items-center gap-2 self-start text-sm font-bold text-primary-500 transition-colors hover:text-primary-500-hover"
                       >
                         {activeDemo === proj.demoType ? "Close interactive demo" : "Open interactive demo"}
                         <ArrowRight size={16} aria-hidden="true" />
@@ -339,7 +339,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
               {/* Close Simulator */}
               <button
                 onClick={() => setActiveDemo(null)}
-                className="absolute top-4 right-4 text-xs font-bold py-1 px-3.5 rounded-full border border-gray-200 dark:border-gray-800 text-neutral-muted dark:text-gray-400 hover:text-brand-orange transition-colors cursor-pointer"
+                className="absolute top-4 right-4 text-xs font-bold py-1 px-3.5 rounded-full border border-gray-200 dark:border-gray-800 text-neutral-muted dark:text-gray-400 hover:text-primary-500 transition-colors cursor-pointer"
               >
                 Close Sandbox &times;
               </button>
@@ -350,7 +350,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
               {activeDemo === "resume" && (
                 <div className="flex flex-col space-y-6">
                   <div className="space-y-1">
-                    <span className="text-xs font-extrabold text-brand-orange tracking-widest uppercase">Live Interactive Simulator</span>
+                    <span className="text-xs font-extrabold text-primary-500 tracking-widest uppercase">Live Interactive Simulator</span>
                     <h4 className="text-2xl font-extrabold tracking-tight">AI HR Recruitment Pipeline Sandbox</h4>
                     <p className={`text-sm ${darkMode ? "text-gray-400" : "text-neutral-muted"}`}>
                       Paste your CV below or edit this sample to test Nagaraju's customized recruitment qual scoring agent.
@@ -363,14 +363,14 @@ export default function Projects({ darkMode }: ProjectsProps) {
                       <textarea
                         value={resumeText}
                         onChange={(e) => setResumeText(e.target.value)}
-                        className={`p-4 h-56 rounded-2xl border text-sm font-mono focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-all ${
+                        className={`p-4 h-56 rounded-2xl border text-sm font-mono focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all ${
                           darkMode ? "bg-gray-900 border-gray-800" : "bg-gray-50 border-gray-100"
                         }`}
                       ></textarea>
                       <button
                         onClick={runResumePipeline}
                         disabled={resumeRunning}
-                        className="flex items-center justify-center space-x-2 w-full py-3.5 rounded-2xl bg-brand-orange text-white text-sm font-bold cursor-pointer hover:bg-brand-orange-hover active:scale-98 transition-all duration-200 disabled:opacity-50"
+                        className="flex items-center justify-center space-x-2 w-full py-3.5 rounded-2xl bg-primary-500 text-white text-sm font-bold cursor-pointer hover:bg-primary-500-hover active:scale-98 transition-all duration-200 disabled:opacity-50"
                       >
                         {resumeRunning ? (
                           <>
@@ -411,7 +411,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
               {activeDemo === "invoice" && (
                 <div className="flex flex-col space-y-6">
                   <div className="space-y-1">
-                    <span className="text-xs font-extrabold text-brand-orange tracking-widest uppercase">Live Interactive Simulator</span>
+                    <span className="text-xs font-extrabold text-primary-500 tracking-widest uppercase">Live Interactive Simulator</span>
                     <h4 className="text-2xl font-extrabold tracking-tight">Telegram OCR Invoice Agent</h4>
                     <p className={`text-sm ${darkMode ? "text-gray-400" : "text-neutral-muted"}`}>
                       Simulate uploading receipt text to the Telegram Agent to verify data matching.
@@ -424,14 +424,14 @@ export default function Projects({ darkMode }: ProjectsProps) {
                       <textarea
                         value={invoiceText}
                         onChange={(e) => setInvoiceText(e.target.value)}
-                        className={`p-4 h-56 rounded-2xl border text-sm font-mono focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-all ${
+                        className={`p-4 h-56 rounded-2xl border text-sm font-mono focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all ${
                           darkMode ? "bg-gray-900 border-gray-800" : "bg-gray-50 border-gray-100"
                         }`}
                       ></textarea>
                       <button
                         onClick={runInvoiceOCR}
                         disabled={invoiceRunning}
-                        className="flex items-center justify-center space-x-2 w-full py-3.5 rounded-2xl bg-brand-orange text-white text-sm font-bold cursor-pointer hover:bg-brand-orange-hover active:scale-98 transition-all duration-200 disabled:opacity-50"
+                        className="flex items-center justify-center space-x-2 w-full py-3.5 rounded-2xl bg-primary-500 text-white text-sm font-bold cursor-pointer hover:bg-primary-500-hover active:scale-98 transition-all duration-200 disabled:opacity-50"
                       >
                         {invoiceRunning ? (
                           <>
@@ -472,7 +472,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
               {activeDemo === "ecommerce" && (
                 <div className="flex flex-col space-y-4">
                   <div className="space-y-1">
-                    <span className="text-xs font-extrabold text-brand-orange tracking-widest uppercase">Live Interactive Simulator</span>
+                    <span className="text-xs font-extrabold text-primary-500 tracking-widest uppercase">Live Interactive Simulator</span>
                     <h4 className="text-2xl font-extrabold tracking-tight">Smart E-Commerce Chatbot Dialog</h4>
                     <p className={`text-sm ${darkMode ? "text-gray-400" : "text-neutral-muted"}`}>
                       Live RAG chat test! Type questions about Nagaraju's developer gear listings (e.g. "Is the orange hoodie in stock?").
@@ -484,9 +484,9 @@ export default function Projects({ darkMode }: ProjectsProps) {
                     darkMode ? "bg-gray-900 border-gray-800" : "bg-gray-50 border-gray-100"
                   }`}>
                     {/* Chat Header */}
-                    <div className="px-4 py-3 border-b flex items-center space-x-2 border-gray-100/10 bg-brand-orange-light">
-                      <Bot className="text-brand-orange" size={16} />
-                      <span className="text-xs font-extrabold text-brand-orange uppercase">Active Vector-RAG Dialogue Simulator</span>
+                    <div className="px-4 py-3 border-b flex items-center space-x-2 border-gray-100/10 bg-primary-500-light">
+                      <Bot className="text-primary-500" size={16} />
+                      <span className="text-xs font-extrabold text-primary-500 uppercase">Active Vector-RAG Dialogue Simulator</span>
                     </div>
 
                     {/* Chat Messages */}
@@ -498,7 +498,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
                         >
                           <div className={`p-3.5 max-w-[85%] rounded-2xl text-xs leading-relaxed whitespace-pre-wrap ${
                             msg.sender === "user"
-                              ? "bg-brand-orange text-white rounded-tr-none"
+                              ? "bg-primary-500 text-white rounded-tr-none"
                               : darkMode
                                 ? "bg-gray-950 text-gray-300 border border-gray-800 rounded-tl-none"
                                 : "bg-white text-neutral-dark border border-gray-100 rounded-tl-none"
@@ -517,13 +517,13 @@ export default function Projects({ darkMode }: ProjectsProps) {
                         value={chatInput}
                         onChange={(e) => setChatInput(e.target.value)}
                         onKeyDown={(e) => e.key === "Enter" && sendChatMessage()}
-                        className={`flex-1 px-4 py-2 text-xs rounded-xl border focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange ${
+                        className={`flex-1 px-4 py-2 text-xs rounded-xl border focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 ${
                           darkMode ? "bg-gray-950 border-gray-800 text-white" : "bg-white border-gray-100 text-neutral-dark"
                         }`}
                       />
                       <button
                         onClick={sendChatMessage}
-                        className="p-2.5 rounded-xl bg-brand-orange text-white hover:bg-brand-orange-hover duration-200 cursor-pointer"
+                        className="p-2.5 rounded-xl bg-primary-500 text-white hover:bg-primary-500-hover duration-200 cursor-pointer"
                       >
                         <Send size={14} />
                       </button>
@@ -540,7 +540,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
         <div className="text-center mt-12">
           <a
             href="#projects"
-            className="inline-flex items-center space-x-1.5 text-sm font-extrabold text-brand-orange hover:text-brand-orange-hover group"
+            className="inline-flex items-center space-x-1.5 text-sm font-extrabold text-primary-500 hover:text-primary-500-hover group"
           >
             <span>View all projects</span>
             <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />

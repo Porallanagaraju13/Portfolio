@@ -27,7 +27,7 @@ export default function Footer({ darkMode }: FooterProps) {
             <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-[0_1.5px_6px_rgba(255,138,0,0.18)] transition-transform duration-300 group-hover:scale-110 shrink-0">
               <defs>
                 <linearGradient id="logoGradFoot" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#FF8A00" />
+                  <stop offset="0%" stopColor="#06b6d4" />
                   <stop offset="100%" stopColor="#FF5100" />
                 </linearGradient>
                 <linearGradient id="logoTealFoot" x1="100%" y1="0%" x2="0%" y2="100%">
@@ -44,18 +44,18 @@ export default function Footer({ darkMode }: FooterProps) {
 
           {/* Center Links */}
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
-            <a href="#projects" className="hover:text-brand-orange transition-colors">Work</a>
-            <a href="#skills" className="hover:text-brand-orange transition-colors">Stack</a>
-            <a href="#experience" className="hover:text-brand-orange transition-colors">Experience</a>
+            <a href="#projects" className="hover:text-primary-500 transition-colors">Work</a>
+            <a href="#skills" className="hover:text-primary-500 transition-colors">Stack</a>
+            <a href="#experience" className="hover:text-primary-500 transition-colors">Experience</a>
             <button
               onClick={() => navigate("/blog")}
-              className="hover:text-brand-orange transition-colors cursor-pointer bg-transparent border-none p-0 font-medium font-sans"
+              className="hover:text-primary-500 transition-colors cursor-pointer bg-transparent border-none p-0 font-medium font-sans"
             >
               Blog
             </button>
             <button
               onClick={() => setPrivacyOpen(true)}
-              className="hover:text-brand-orange transition-colors cursor-pointer bg-transparent border-none p-0 font-medium font-sans"
+              className="hover:text-primary-500 transition-colors cursor-pointer bg-transparent border-none p-0 font-medium font-sans"
             >
               Privacy
             </button>
@@ -92,7 +92,7 @@ export default function Footer({ darkMode }: FooterProps) {
               }`}
             >
               {/* Header */}
-              <div className="flex items-center space-x-2.5 text-brand-orange">
+              <div className="flex items-center space-x-2.5 text-primary-500">
                 <ShieldCheck size={24} />
                 <h3 className="text-lg font-extrabold tracking-tight">Privacy Policy Terms</h3>
               </div>
@@ -129,7 +129,7 @@ export default function Footer({ darkMode }: FooterProps) {
               {/* Close button bottom */}
               <button
                 onClick={() => setPrivacyOpen(false)}
-                className="w-full py-3.5 mt-2 rounded-2xl bg-brand-orange text-white text-xs font-bold shadow-md shadow-brand-orange/20 hover:bg-brand-orange-hover duration-150 cursor-pointer"
+                className="w-full py-3.5 mt-2 rounded-2xl bg-primary-500 text-white text-xs font-bold shadow-md shadow-primary-500/20 hover:bg-primary-500-hover duration-150 cursor-pointer"
               >
                 Accept and Close
               </button>

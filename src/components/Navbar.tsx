@@ -75,7 +75,7 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
             <svg width="38" height="38" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-[0_2.5px_9px_rgba(255,138,0,0.22)] transition-transform duration-300 group-hover:scale-110 shrink-0">
               <defs>
                 <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#FF8A00" />
+                  <stop offset="0%" stopColor="#06b6d4" />
                   <stop offset="100%" stopColor="#FF5100" />
                 </linearGradient>
                 <linearGradient id="logoTeal" x1="100%" y1="0%" x2="0%" y2="100%">
@@ -101,12 +101,12 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
                   aria-label={link.name}
                   className={`text-sm font-semibold tracking-wide transition-colors duration-200 relative group py-2 ${
                     isActive 
-                      ? "text-brand-orange" 
-                      : darkMode ? "text-gray-300 hover:text-brand-orange" : "text-neutral-dark hover:text-brand-orange"
+                      ? "text-primary-500" 
+                      : darkMode ? "text-gray-300 hover:text-primary-500" : "text-neutral-dark hover:text-primary-500"
                   }`}
                 >
                   {link.name}
-                  <span className={`absolute bottom-0 left-0 h-[2px] bg-brand-orange transition-all duration-200 ${
+                  <span className={`absolute bottom-0 left-0 h-[2px] bg-primary-500 transition-all duration-200 ${
                     isActive ? "w-full" : "w-0 group-hover:w-full"
                   }`}></span>
                 </a>
@@ -116,11 +116,11 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
             <button
               onClick={handleBlogClick}
               className={`text-sm font-semibold tracking-wide transition-colors duration-200 relative group py-2 bg-transparent border-none cursor-pointer ${
-                darkMode ? "text-gray-300 hover:text-brand-orange" : "text-neutral-dark hover:text-brand-orange"
+                darkMode ? "text-gray-300 hover:text-primary-500" : "text-neutral-dark hover:text-primary-500"
               }`}
             >
               Blog
-              <span className="absolute bottom-0 left-0 h-[2px] bg-brand-orange transition-all duration-200 w-0 group-hover:w-full" />
+              <span className="absolute bottom-0 left-0 h-[2px] bg-primary-500 transition-all duration-200 w-0 group-hover:w-full" />
             </button>
           </nav>
 
@@ -144,7 +144,7 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
             <button
               onClick={onHireMeClick}
               aria-label="Contact Nagaraju"
-              className="flex items-center space-x-1.5 px-5 py-2.5 rounded-xl bg-brand-orange text-white text-sm font-bold shadow-lg shadow-brand-orange/15 hover:bg-brand-orange-hover hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
+              className="flex items-center space-x-1.5 px-5 py-2.5 rounded-xl bg-primary-500 text-white text-sm font-bold shadow-lg shadow-primary-500/15 hover:bg-primary-500-hover hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
             >
               <span>Hire Me</span>
               <ArrowRight size={14} />
@@ -163,7 +163,7 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
           <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-[0_2px_8px_rgba(255,138,0,0.2)] shrink-0 transition-transform duration-300 group-hover:scale-105">
             <defs>
               <linearGradient id="logoGradMob" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#FF8A00" />
+                <stop offset="0%" stopColor="#06b6d4" />
                 <stop offset="100%" stopColor="#FF5100" />
               </linearGradient>
               <linearGradient id="logoTealMob" x1="100%" y1="0%" x2="0%" y2="100%">
@@ -181,7 +181,7 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
         <button
           onClick={onHireMeClick}
           aria-label="Contact Nagaraju"
-          className="flex shrink-0 items-center space-x-1 rounded-xl bg-brand-orange px-4 py-2 text-xs font-bold text-white shadow-md shadow-brand-orange/15 transition-all duration-200 hover:bg-brand-orange-hover active:scale-[0.98] cursor-pointer"
+          className="flex shrink-0 items-center space-x-1 rounded-xl bg-primary-500 px-4 py-2 text-xs font-bold text-white shadow-md shadow-primary-500/15 transition-all duration-200 hover:bg-primary-500-hover active:scale-[0.98] cursor-pointer"
         >
           <span>Hire Me</span>
           <ArrowRight size={12} />
@@ -207,15 +207,15 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
                   aria-label={link.name}
                   className={`flex h-9 w-9 items-center justify-center rounded-full transition-all duration-300 group select-none relative sm:h-[42px] sm:w-[42px] ${
                     isActive
-                      ? "text-brand-orange bg-brand-orange/10 dark:bg-brand-orange/15 font-semibold"
-                      : "text-gray-400 dark:text-gray-550 hover:text-brand-orange"
+                      ? "text-primary-500 bg-primary-500/10 dark:bg-primary-500/15 font-semibold"
+                      : "text-gray-400 dark:text-gray-550 hover:text-primary-500"
                   }`}
                 >
                   <Icon size={19} className="transition-transform duration-200 group-hover:scale-110 shrink-0" />
                   
                   {/* Subtle active circle indicator below icon on small screens */}
                   {isActive && (
-                    <span className="absolute bottom-1 w-1 h-1 bg-brand-orange rounded-full"></span>
+                    <span className="absolute bottom-1 w-1 h-1 bg-primary-500 rounded-full"></span>
                   )}
                 </a>
               );
@@ -224,7 +224,7 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
             {/* Blog button in mobile nav */}
             <button
               onClick={handleBlogClick}
-              className={`flex items-center justify-center rounded-full transition-all duration-200 cursor-pointer relative text-gray-400 dark:text-gray-550 hover:text-brand-orange`}
+              className={`flex items-center justify-center rounded-full transition-all duration-200 cursor-pointer relative text-gray-400 dark:text-gray-550 hover:text-primary-500`}
               style={{ width: "42px", height: "42px" }}
               aria-label="Go to Blog"
             >
@@ -238,8 +238,8 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
               onClick={() => setIsChatOpen(!isChatOpen)}
               className={`flex h-9 w-9 items-center justify-center rounded-full transition-all duration-200 cursor-pointer relative sm:h-[42px] sm:w-[42px] ${
                 isChatOpen
-                  ? "text-brand-orange bg-brand-orange/10 dark:bg-brand-orange/15 font-semibold"
-                  : "text-gray-400 dark:text-gray-550 hover:text-brand-orange"
+                  ? "text-primary-500 bg-primary-500/10 dark:bg-primary-500/15 font-semibold"
+                  : "text-gray-400 dark:text-gray-550 hover:text-primary-500"
               }`}
               aria-label="Toggle chat mobile"
             >

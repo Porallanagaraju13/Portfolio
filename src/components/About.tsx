@@ -30,7 +30,7 @@ export default function About({ darkMode }: AboutProps) {
                 className="relative w-full aspect-square flex items-center justify-center rounded-3xl transition-all duration-300 bg-transparent p-0"
               >
                 {/* Floating ambient glow specifically behind the avatar */}
-                <div className="absolute inset-6 rounded-full bg-brand-teal-light blur-3xl -z-10 animate-pulse"></div>
+                <div className="absolute inset-6 rounded-full bg-accent-500-light blur-3xl -z-10 animate-pulse"></div>
                 {/* Developer Image */}
                 <img
                   src="./assets/avatar_about.png"
@@ -46,7 +46,7 @@ export default function About({ darkMode }: AboutProps) {
 
           {/* Right layout: About Content */}
           <div className="lg:col-span-7 flex flex-col space-y-6">
-            <div className="flex items-center space-x-2 text-brand-orange">
+            <div className="flex items-center space-x-2 text-primary-500">
               <User size={22} />
               <h2 className="text-xl font-bold uppercase tracking-wider">About Me</h2>
             </div>
@@ -83,7 +83,7 @@ export default function About({ darkMode }: AboutProps) {
                   transition={{ delay: idx * 0.15, duration: 0.5 }}
                   className="flex flex-col space-y-1"
                 >
-                  <span className="text-3xl sm:text-4xl font-extrabold text-brand-orange tabular-nums">
+                  <span className="text-3xl sm:text-4xl font-extrabold text-primary-500 tabular-nums">
                     {stat.value}
                   </span>
                   <span className={`text-xs font-extrabold tracking-widest ${

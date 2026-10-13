@@ -1,4 +1,4 @@
-/* Hairline figure styles - isometric line art theme */
+/* Hairline figure styles - isometric line art with new design system colors */
 
 .hairline-container {
   position: relative;
@@ -18,28 +18,28 @@
 
 /* Light theme (default) */
 .hairline-container.light .hairline-svg {
-  --ground: #FFFFFF;
-  --stroke-hi: #FF8A00;
-  --stroke-mid: #1D1D1F;
-  --stroke-lo: #9CA3AF;
-  --stroke-faint: #E5E7EB;
+  --ground: #f8fafc;
+  --stroke-hi: #06b6d4;      /* Primary cyan */
+  --stroke-mid: #0f172a;     /* Neutral 900 */
+  --stroke-lo: #94a3b8;      /* Neutral 400 */
+  --stroke-faint: #e2e8f0;   /* Neutral 200 */
   --stroke-lit: #000000;
-  --dot-hi: #FF8A00;
-  --dot-mid: #1D1D1F;
-  --dot-lo: #9CA3AF;
+  --dot-hi: #06b6d4;         /* Primary cyan */
+  --dot-mid: #0f172a;
+  --dot-lo: #94a3b8;
 }
 
 /* Dark theme */
 .hairline-container.dark .hairline-svg {
-  --ground: #18181B;
-  --stroke-hi: #FF8A00;
-  --stroke-mid: #E5E7EB;
-  --stroke-lo: #6B7280;
-  --stroke-faint: #374151;
-  --stroke-lit: #FFFFFF;
-  --dot-hi: #FF8A00;
-  --dot-mid: #E5E7EB;
-  --dot-lo: #6B7280;
+  --ground: #020617;
+  --stroke-hi: #22d3ee;      /* Primary 400 (brighter for dark) */
+  --stroke-mid: #f8fafc;     /* Neutral 50 */
+  --stroke-lo: #64748b;      /* Neutral 500 */
+  --stroke-faint: #334155;   /* Neutral 700 */
+  --stroke-lit: #ffffff;
+  --dot-hi: #22d3ee;         /* Primary 400 */
+  --dot-mid: #f8fafc;
+  --dot-lo: #64748b;
 }
 
 /* Path styles */

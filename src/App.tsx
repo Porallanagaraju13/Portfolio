@@ -51,7 +51,7 @@ function LandingPage({
     >
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-brand-orange focus:px-4 focus:py-2 focus:font-bold focus:text-white"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-primary-500 focus:px-4 focus:py-2 focus:font-bold focus:text-white"
       >
         Skip to content
       </a>
@@ -59,11 +59,11 @@ function LandingPage({
       {/* Spring Scroll Progress Bar */}
       <motion.div
         style={{ scaleX }}
-        className="fixed top-0 left-0 right-0 h-[4px] bg-brand-orange origin-left z-50"
+        className="fixed top-0 left-0 right-0 h-[4px] bg-primary-500 origin-left z-50"
       />
 
       {/* Centered Decorative background layout elements */}
-      <div className="absolute top-0 inset-x-0 h-[600px] bg-gradient-to-b from-brand-orange/3 to-transparent pointer-events-none z-0" />
+      <div className="absolute top-0 inset-x-0 h-[600px] bg-gradient-to-b from-primary-500/3 to-transparent pointer-events-none z-0" />
 
       {/* Floating Navigation panel */}
       <Navbar
