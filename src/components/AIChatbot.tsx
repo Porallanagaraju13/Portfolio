@@ -317,7 +317,7 @@ Guidelines for your responses:
         <button
           onClick={() => setIsOpen(!isOpen)}
           id="ai-chatbot-trigger-btn"
-          className="relative h-14 w-14 rounded-full bg-brand-orange text-white flex items-center justify-center shadow-lg shadow-brand-orange/30 cursor-pointer hover:bg-brand-orange-hover hover:scale-105 active:scale-95 transition-all duration-200"
+          className="relative h-14 w-14 rounded-full bg-primary-500 text-white flex items-center justify-center shadow-lg shadow-primary-500/30 cursor-pointer hover:bg-primary-500-hover hover:scale-105 active:scale-95 transition-all duration-200"
           title="Chat with Nagaraju's AI Assistant"
         >
           {isOpen ? (
@@ -347,7 +347,7 @@ Guidelines for your responses:
             }`}
           >
             {/* Header */}
-            <div className="px-5 py-4 border-b border-gray-100/10 flex items-center justify-between bg-brand-orange text-white">
+            <div className="px-5 py-4 border-b border-gray-100/10 flex items-center justify-between bg-primary-500 text-white">
               <div className="flex items-center space-x-2.5">
                 <div className="p-1.5 rounded-xl bg-white/20">
                   <Bot size={18} />
@@ -389,7 +389,7 @@ Guidelines for your responses:
                     }`}
                   >
                     <div className="space-y-4">
-                      <div className="flex items-center space-x-2 text-brand-orange">
+                      <div className="flex items-center space-x-2 text-primary-500">
                         <Key size={18} />
                         <h5 className="text-sm font-bold">Secure Local API Configuration</h5>
                       </div>
@@ -408,7 +408,7 @@ Guidelines for your responses:
                           placeholder="AIzaSy..."
                           value={tempApiKey}
                           onChange={(e) => setTempApiKey(e.target.value)}
-                          className={`w-full px-3 py-2 text-xs rounded-xl border focus:outline-none focus:border-brand-orange ${
+                          className={`w-full px-3 py-2 text-xs rounded-xl border focus:outline-none focus:border-primary-500 ${
                             darkMode ? "bg-gray-900 border-gray-800 text-white" : "bg-gray-50 border-gray-100 text-neutral-dark"
                           }`}
                         />
@@ -435,7 +435,7 @@ Guidelines for your responses:
                       </button>
                       <button
                         onClick={handleSaveApiKey}
-                        className="flex-1 py-2 text-xs font-bold rounded-xl bg-brand-orange text-white cursor-pointer hover:bg-brand-orange-hover transition-colors"
+                        className="flex-1 py-2 text-xs font-bold rounded-xl bg-primary-500 text-white cursor-pointer hover:bg-primary-500-hover transition-colors"
                       >
                         Save Settings
                       </button>
@@ -453,7 +453,7 @@ Guidelines for your responses:
                   >
                     <div className={`p-3.5 max-w-[85%] rounded-2xl text-xs leading-relaxed whitespace-pre-line ${
                       m.sender === "user"
-                        ? "bg-brand-orange text-white rounded-tr-none font-medium"
+                        ? "bg-primary-500 text-white rounded-tr-none font-medium"
                         : darkMode
                           ? "bg-gray-900 border border-gray-800 text-gray-300 rounded-tl-none"
                           : "bg-gray-50 text-neutral-dark border border-gray-100 rounded-tl-none"
@@ -471,9 +471,9 @@ Guidelines for your responses:
                       darkMode ? "bg-gray-900" : "bg-gray-50"
                     }`}>
                       <div className="flex space-x-1.5">
-                        <div className="h-1.5 w-1.5 rounded-full bg-brand-orange animate-bounce" style={{ animationDelay: "0ms" }}></div>
-                        <div className="h-1.5 w-1.5 rounded-full bg-brand-orange animate-bounce" style={{ animationDelay: "150ms" }}></div>
-                        <div className="h-1.5 w-1.5 rounded-full bg-brand-orange animate-bounce" style={{ animationDelay: "300ms" }}></div>
+                        <div className="h-1.5 w-1.5 rounded-full bg-primary-500 animate-bounce" style={{ animationDelay: "0ms" }}></div>
+                        <div className="h-1.5 w-1.5 rounded-full bg-primary-500 animate-bounce" style={{ animationDelay: "150ms" }}></div>
+                        <div className="h-1.5 w-1.5 rounded-full bg-primary-500 animate-bounce" style={{ animationDelay: "300ms" }}></div>
                       </div>
                     </div>
                   </div>
@@ -489,7 +489,7 @@ Guidelines for your responses:
                   <button
                     key={p}
                     onClick={() => handleSendMessage(p)}
-                    className="text-[10px] font-bold px-2.5 py-1 rounded-full border border-gray-200 dark:border-gray-800 text-neutral-muted dark:text-gray-400 hover:text-brand-orange hover:border-brand-orange transition-colors cursor-pointer bg-transparent"
+                    className="text-[10px] font-bold px-2.5 py-1 rounded-full border border-gray-200 dark:border-gray-800 text-neutral-muted dark:text-gray-400 hover:text-primary-500 hover:border-primary-500 transition-colors cursor-pointer bg-transparent"
                   >
                     {p}
                   </button>
@@ -507,14 +507,14 @@ Guidelines for your responses:
                   onChange={(e) => setInputText(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleSendMessage(inputText)}
                   disabled={sending}
-                  className={`flex-1 px-4 py-2.5 text-xs rounded-xl border focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange ${
+                  className={`flex-1 px-4 py-2.5 text-xs rounded-xl border focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 ${
                     darkMode ? "bg-gray-900 border-gray-800 text-white" : "bg-gray-50 border-gray-100 text-neutral-dark"
                   }`}
                 />
                 <button
                   onClick={() => handleSendMessage(inputText)}
                   disabled={sending || !inputText.trim()}
-                  className="p-3 rounded-xl bg-brand-orange text-white hover:bg-brand-orange-hover outline-none disabled:opacity-40 transition-colors duration-200 cursor-pointer"
+                  className="p-3 rounded-xl bg-primary-500 text-white hover:bg-primary-500-hover outline-none disabled:opacity-40 transition-colors duration-200 cursor-pointer"
                 >
                   <Send size={14} />
                 </button>

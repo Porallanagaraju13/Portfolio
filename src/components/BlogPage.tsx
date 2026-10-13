@@ -37,7 +37,7 @@ export default function BlogPage({ darkMode }: BlogPageProps) {
       >
         {/* Decorative blob */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-brand-orange/5 blur-3xl" />
+          <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-primary-500/5 blur-3xl" />
           <div className="absolute -bottom-10 -left-10 w-60 h-60 rounded-full bg-cyan-500/5 blur-3xl" />
         </div>
 
@@ -47,8 +47,8 @@ export default function BlogPage({ darkMode }: BlogPageProps) {
             onClick={() => navigate("/")}
             className={`flex items-center gap-1.5 text-xs font-semibold mb-8 transition-colors duration-200 group ${
               darkMode
-                ? "text-gray-400 hover:text-brand-orange"
-                : "text-neutral-muted hover:text-brand-orange"
+                ? "text-gray-400 hover:text-primary-500"
+                : "text-neutral-muted hover:text-primary-500"
             }`}
           >
             <ArrowLeft
@@ -63,8 +63,8 @@ export default function BlogPage({ darkMode }: BlogPageProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.15em] text-brand-orange mb-3">
-              <span className="w-5 h-[2px] bg-brand-orange inline-block rounded-full" />
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.15em] text-primary-500 mb-3">
+              <span className="w-5 h-[2px] bg-primary-500 inline-block rounded-full" />
               Blog
             </span>
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-3">
@@ -97,7 +97,7 @@ export default function BlogPage({ darkMode }: BlogPageProps) {
               placeholder="Search posts…"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className={`w-full pl-9 pr-4 py-2.5 rounded-xl text-sm border outline-none transition-all duration-200 focus:border-brand-orange ${
+              className={`w-full pl-9 pr-4 py-2.5 rounded-xl text-sm border outline-none transition-all duration-200 focus:border-primary-500 ${
                 darkMode
                   ? "bg-gray-900 border-gray-800 text-gray-100 placeholder-gray-600 focus:bg-gray-900"
                   : "bg-white border-gray-200 text-neutral-dark placeholder-gray-400 focus:bg-white"
@@ -111,10 +111,10 @@ export default function BlogPage({ darkMode }: BlogPageProps) {
               onClick={() => setActiveTag(null)}
               className={`px-3.5 py-1.5 rounded-full text-xs font-bold border transition-all duration-200 ${
                 !activeTag
-                  ? "bg-brand-orange text-white border-brand-orange"
+                  ? "bg-primary-500 text-white border-primary-500"
                   : darkMode
-                  ? "border-gray-700 text-gray-400 hover:border-brand-orange hover:text-brand-orange"
-                  : "border-gray-200 text-gray-500 hover:border-brand-orange hover:text-brand-orange"
+                  ? "border-gray-700 text-gray-400 hover:border-primary-500 hover:text-primary-500"
+                  : "border-gray-200 text-gray-500 hover:border-primary-500 hover:text-primary-500"
               }`}
             >
               All
@@ -125,10 +125,10 @@ export default function BlogPage({ darkMode }: BlogPageProps) {
                 onClick={() => setActiveTag(activeTag === tag ? null : tag)}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-bold border transition-all duration-200 ${
                   activeTag === tag
-                    ? "bg-brand-orange text-white border-brand-orange"
+                    ? "bg-primary-500 text-white border-primary-500"
                     : darkMode
-                    ? "border-gray-700 text-gray-400 hover:border-brand-orange hover:text-brand-orange"
-                    : "border-gray-200 text-gray-500 hover:border-brand-orange hover:text-brand-orange"
+                    ? "border-gray-700 text-gray-400 hover:border-primary-500 hover:text-primary-500"
+                    : "border-gray-200 text-gray-500 hover:border-primary-500 hover:text-primary-500"
                 }`}
               >
                 {tag}
@@ -190,7 +190,7 @@ export default function BlogPage({ darkMode }: BlogPageProps) {
                     {post.tags.slice(0, 2).map((tag) => (
                       <span
                         key={tag}
-                        className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-brand-orange/10 text-brand-orange"
+                        className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-primary-500/10 text-primary-500"
                       >
                         <Tag size={8} />
                         {tag}
@@ -199,7 +199,7 @@ export default function BlogPage({ darkMode }: BlogPageProps) {
                   </div>
 
                   {/* Title */}
-                  <h2 className="text-base font-bold leading-snug group-hover:text-brand-orange transition-colors duration-200 line-clamp-2">
+                  <h2 className="text-base font-bold leading-snug group-hover:text-primary-500 transition-colors duration-200 line-clamp-2">
                     {post.title}
                   </h2>
 
@@ -234,7 +234,7 @@ export default function BlogPage({ darkMode }: BlogPageProps) {
                     </div>
                     <ArrowRight
                       size={13}
-                      className="text-brand-orange opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-0.5"
+                      className="text-primary-500 opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-0.5"
                     />
                   </div>
                 </div>

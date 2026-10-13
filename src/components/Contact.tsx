@@ -51,9 +51,9 @@ export default function Contact({ darkMode }: ContactProps) {
   };
 
   return (
-    <section id="contact" className="py-20 bg-brand-orange-faint relative overflow-hidden">
+    <section id="contact" className="py-20 bg-primary-500-faint relative overflow-hidden">
       {/* Background neon orb glow */}
-      <div className="absolute bottom-[-100px] right-[-100px] w-96 h-96 bg-brand-orange/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-[-100px] right-[-100px] w-96 h-96 bg-primary-500/5 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -64,7 +64,7 @@ export default function Contact({ darkMode }: ContactProps) {
               <h2 className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${
                 darkMode ? "text-gray-100" : "text-neutral-dark"
               }`}>
-                Get In <span className="text-brand-orange">Touch</span>
+                Get In <span className="text-primary-500">Touch</span>
               </h2>
               <p className={`text-base sm:text-lg ${
                 darkMode ? "text-gray-400" : "text-neutral-muted"
@@ -72,7 +72,7 @@ export default function Contact({ darkMode }: ContactProps) {
                 Let's discuss how we can build something amazing together.
               </p>
               <p className={`text-sm ${darkMode ? "text-gray-400" : "text-neutral-muted"}`}>
-                Prefer email? <a className="font-semibold text-brand-orange hover:underline" href="mailto:nagarajuporalla13@gmail.com">nagarajuporalla13@gmail.com</a>
+                Prefer email? <a className="font-semibold text-primary-500 hover:underline" href="mailto:nagarajuporalla13@gmail.com">nagarajuporalla13@gmail.com</a>
               </p>
             </div>
 
@@ -110,13 +110,13 @@ export default function Contact({ darkMode }: ContactProps) {
                 </p>
                 <a
                   href="mailto:nagarajuporalla13@gmail.com"
-                  className="text-sm font-bold text-brand-orange hover:underline"
+                  className="text-sm font-bold text-primary-500 hover:underline"
                 >
                   Email Nagaraju directly
                 </a>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="px-6 py-2 rounded-xl border border-gray-200 dark:border-gray-800 text-xs font-bold hover:text-brand-orange hover:border-brand-orange transition-colors cursor-pointer"
+                  className="px-6 py-2 rounded-xl border border-gray-200 dark:border-gray-800 text-xs font-bold hover:text-primary-500 hover:border-primary-500 transition-colors cursor-pointer"
                 >
                   Send another message
                 </button>
@@ -133,7 +133,7 @@ export default function Contact({ darkMode }: ContactProps) {
                       value={formData.firstName}
                       onChange={handleChange}
                       placeholder="Nagaraju"
-                      className={`px-5 py-3.5 rounded-2xl border text-sm focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-all ${
+                      className={`px-5 py-3.5 rounded-2xl border text-sm focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all ${
                         darkMode ? "bg-gray-900 border-gray-800 text-white" : "bg-white border-gray-100 text-neutral-dark"
                       }`}
                       required
@@ -148,7 +148,7 @@ export default function Contact({ darkMode }: ContactProps) {
                       value={formData.lastName}
                       onChange={handleChange}
                       placeholder="Poralla"
-                      className={`px-5 py-3.5 rounded-2xl border text-sm focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-all ${
+                      className={`px-5 py-3.5 rounded-2xl border text-sm focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all ${
                         darkMode ? "bg-gray-900 border-gray-800 text-white" : "bg-white border-gray-100 text-neutral-dark"
                       }`}
                     />
@@ -164,7 +164,7 @@ export default function Contact({ darkMode }: ContactProps) {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="example@yourdomain.com"
-                    className={`px-5 py-3.5 rounded-2xl border text-sm focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-all ${
+                    className={`px-5 py-3.5 rounded-2xl border text-sm focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all ${
                       darkMode ? "bg-gray-900 border-gray-800 text-white" : "bg-white border-gray-100 text-neutral-dark"
                     }`}
                     required
@@ -179,7 +179,7 @@ export default function Contact({ darkMode }: ContactProps) {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Hello! I would love to collaborate on a new AI Agent workflow project with you..."
-                    className={`px-5 py-3.5 h-36 rounded-2xl border text-sm focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-all ${
+                    className={`px-5 py-3.5 h-36 rounded-2xl border text-sm focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all ${
                       darkMode ? "bg-gray-900 border-gray-800 text-white" : "bg-white border-gray-100 text-neutral-dark"
                     }`}
                     required
@@ -190,7 +190,7 @@ export default function Contact({ darkMode }: ContactProps) {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full flex items-center justify-center space-x-2 py-4 rounded-2xl bg-brand-orange text-white font-extrabold shadow-lg shadow-brand-orange/20 cursor-pointer hover:bg-brand-orange-hover active:scale-98 transition-all duration-200 disabled:opacity-50"
+                  className="w-full flex items-center justify-center space-x-2 py-4 rounded-2xl bg-primary-500 text-white font-extrabold shadow-lg shadow-primary-500/20 cursor-pointer hover:bg-primary-500-hover active:scale-98 transition-all duration-200 disabled:opacity-50"
                 >
                   {loading ? (
                     <>
@@ -219,14 +219,14 @@ export default function Contact({ darkMode }: ContactProps) {
               className="relative w-full max-w-xs md:max-w-sm aspect-square flex items-center justify-center"
             >
               {/* Spinning background orb ring */}
-              <div className="absolute inset-0 bg-brand-orange/5 dark:bg-brand-orange/10 rounded-full blur-2xl animate-pulse"></div>
+              <div className="absolute inset-0 bg-primary-500/5 dark:bg-primary-500/10 rounded-full blur-2xl animate-pulse"></div>
 
               {/* Orbital connections visual */}
               <svg
                 id="contact-orbital-svg"
                 viewBox="0 0 300 300"
                 className="w-full h-full relative z-10"
-                alt="Contact Orbiting Network Elements"
+                aria-label="Contact Orbiting Network Elements"
               >
                 <defs>
                   <linearGradient id="orbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -245,22 +245,22 @@ export default function Contact({ darkMode }: ContactProps) {
                 <circle cx="150" cy="150" r="70" fill="none" stroke={darkMode ? "#1E293B" : "#F1F5F9"} strokeWidth="1.5" />
 
                 {/* Central main Mail coin element */}
-                <circle cx="150" cy="150" r="45" fill={darkMode ? "url(#orbGradDark)" : "url(#orbGrad)"} stroke="#FF8A00" strokeWidth="2" className="animate-pulse" />
+                <circle cx="150" cy="150" r="45" fill={darkMode ? "url(#orbGradDark)" : "url(#orbGrad)"} stroke="#06b6d4" strokeWidth="2" className="animate-pulse" />
                 
                 {/* Bright '@' logo inside coin */}
-                <text x="150" y="160" fill="#FF8A00" fontSize="32" fontWeight="800" textAnchor="middle" fontFamily="Plus Jakarta Sans">@</text>
+                <text x="150" y="160" fill="#06b6d4" fontSize="32" fontWeight="800" textAnchor="middle" fontFamily="Plus Jakarta Sans">@</text>
 
                 {/* Orbiting element 1 - Link icon */}
                 <g className="animate-bounce" style={{ transformOrigin: "80px 80px", animationDuration: "3.5s" }}>
                   <circle cx="80" cy="80" r="22" fill={darkMode ? "#1F2937" : "#FFFFFF"} stroke={darkMode ? "#374151" : "#E2E8F0"} strokeWidth="1.5" />
-                  <path d="M74 86 H86 M74 80 H86 M77 74 H83" stroke="#FF8A00" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M74 86 H86 M74 80 H86 M77 74 H83" stroke="#06b6d4" strokeWidth="2" strokeLinecap="round" />
                 </g>
 
                 {/* Orbiting element 2 - Envelope logo */}
                 <g className="animate-bounce" style={{ transformOrigin: "230px 180px", animationDuration: "5s" }}>
-                  <circle cx="230" cy="180" r="22" fill={darkMode ? "#1F2937" : "#FFFFFF"} stroke="#FF8A00" strokeWidth="1.5" />
-                  <rect x="219" y="172" width="22" height="15" rx="3" fill="none" stroke="#FF8A00" strokeWidth="1.8" />
-                  <path d="M219 173 L230 181 L241 173" stroke="#FF8A00" strokeWidth="1.8" fill="none" strokeLinejoin="round" />
+                  <circle cx="230" cy="180" r="22" fill={darkMode ? "#1F2937" : "#FFFFFF"} stroke="#06b6d4" strokeWidth="1.5" />
+                  <rect x="219" y="172" width="22" height="15" rx="3" fill="none" stroke="#06b6d4" strokeWidth="1.8" />
+                  <path d="M219 173 L230 181 L241 173" stroke="#06b6d4" strokeWidth="1.8" fill="none" strokeLinejoin="round" />
                 </g>
 
                 {/* Orbiting element 3 - Phone badge */}
@@ -270,8 +270,8 @@ export default function Contact({ darkMode }: ContactProps) {
                 </g>
 
                 {/* Linking bridges */}
-                <line x1="150" y1="105" x2="80" y2="80" stroke="#FF8A00" strokeWidth="1.0" strokeOpacity="0.4" strokeDasharray="3 3" />
-                <line x1="150" y1="195" x2="230" y2="180" stroke="#FF8A00" strokeWidth="1.0" strokeOpacity="0.4" strokeDasharray="3 3" />
+                <line x1="150" y1="105" x2="80" y2="80" stroke="#06b6d4" strokeWidth="1.0" strokeOpacity="0.4" strokeDasharray="3 3" />
+                <line x1="150" y1="195" x2="230" y2="180" stroke="#06b6d4" strokeWidth="1.0" strokeOpacity="0.4" strokeDasharray="3 3" />
               </svg>
             </motion.div>
           </div>

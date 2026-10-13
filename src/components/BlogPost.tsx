@@ -32,7 +32,7 @@ export default function BlogPost({ darkMode }: BlogPostProps) {
         </p>
         <button
           onClick={() => navigate("/blog")}
-          className="px-5 py-2.5 rounded-xl bg-brand-orange text-white text-sm font-bold hover:bg-brand-orange-hover transition-colors duration-200"
+          className="px-5 py-2.5 rounded-xl bg-primary-500 text-white text-sm font-bold hover:bg-primary-500-hover transition-colors duration-200"
         >
           Back to Blog
         </button>
@@ -54,7 +54,7 @@ export default function BlogPost({ darkMode }: BlogPostProps) {
       >
         {/* Decorative gradients */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-brand-orange/5 blur-3xl" />
+          <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-primary-500/5 blur-3xl" />
           <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-cyan-500/5 blur-3xl" />
         </div>
 
@@ -67,8 +67,8 @@ export default function BlogPost({ darkMode }: BlogPostProps) {
             onClick={() => navigate("/blog")}
             className={`flex items-center gap-1.5 text-xs font-semibold mb-8 transition-colors duration-200 group ${
               darkMode
-                ? "text-gray-400 hover:text-brand-orange"
-                : "text-neutral-muted hover:text-brand-orange"
+                ? "text-gray-400 hover:text-primary-500"
+                : "text-neutral-muted hover:text-primary-500"
             }`}
           >
             <ArrowLeft
@@ -88,7 +88,7 @@ export default function BlogPost({ darkMode }: BlogPostProps) {
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full bg-brand-orange/10 text-brand-orange"
+                className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full bg-primary-500/10 text-primary-500"
               >
                 <Tag size={8} />
                 {tag}
@@ -163,8 +163,8 @@ export default function BlogPost({ darkMode }: BlogPostProps) {
             onClick={() => navigate("/blog")}
             className={`flex items-center gap-1.5 text-sm font-semibold transition-colors duration-200 group ${
               darkMode
-                ? "text-gray-400 hover:text-brand-orange"
-                : "text-neutral-muted hover:text-brand-orange"
+                ? "text-gray-400 hover:text-primary-500"
+                : "text-neutral-muted hover:text-primary-500"
             }`}
           >
             <ArrowLeft
@@ -176,7 +176,7 @@ export default function BlogPost({ darkMode }: BlogPostProps) {
 
           <button
             onClick={() => navigate("/")}
-            className="px-4 py-2 rounded-xl border border-brand-orange text-brand-orange text-xs font-bold hover:bg-brand-orange hover:text-white transition-all duration-200"
+            className="px-4 py-2 rounded-xl border border-primary-500 text-primary-500 text-xs font-bold hover:bg-primary-500 hover:text-white transition-all duration-200"
           >
             View Portfolio
           </button>

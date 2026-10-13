@@ -1,0 +1,135 @@
+/* Hairline figure styles - production LLM systems theme */
+
+.hairline-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+  user-select: none;
+}
+
+.hairline-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+/* Light theme */
+.hairline-container.light .hairline-svg {
+  --ground: #ffffff;
+  --stroke-hi: #2563eb;      /* Primary blue 600 */
+  --stroke-mid: #0f172a;     /* Neutral 900 */
+  --stroke-lo: #94a3b8;      /* Neutral 400 */
+  --stroke-faint: #e2e8f0;   /* Neutral 200 */
+  --stroke-lit: #000000;
+  --dot-hi: #2563eb;         /* Primary blue 600 */
+  --dot-mid: #0f172a;
+  --dot-lo: #94a3b8;
+}
+
+/* Dark theme - deep navy/charcoal base */
+.hairline-container.dark .hairline-svg {
+  --ground: #0a0f1e;         /* Deep navy surface */
+  --stroke-hi: #3b82f6;      /* Confident blue */
+  --stroke-mid: #d1d5db;     /* Light gray */
+  --stroke-lo: #6b7280;      /* Medium gray */
+  --stroke-faint: #374151;   /* Dark gray */
+  --stroke-lit: #ffffff;
+  --dot-hi: #3b82f6;         /* Confident blue */
+  --dot-mid: #d1d5db;
+  --dot-lo: #6b7280;
+}
+
+/* Path styles */
+.hairline-svg path,
+.hairline-svg polygon,
+.hairline-svg polyline,
+.hairline-svg line {
+  fill: var(--ground);
+  stroke: var(--stroke-mid);
+  stroke-width: 0.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.hairline-svg path.sil {
+  stroke: var(--stroke-mid);
+  stroke-width: 1;
+}
+
+.hairline-svg path.hi,
+.hairline-svg polyline.hi,
+.hairline-svg line.hi {
+  stroke: var(--stroke-hi);
+  stroke-width: 1;
+}
+
+.hairline-svg path.lo,
+.hairline-svg polyline.lo,
+.hairline-svg line.lo {
+  stroke: var(--stroke-lo);
+}
+
+.hairline-svg path.faint,
+.hairline-svg polyline.faint,
+.hairline-svg line.faint {
+  stroke: var(--stroke-faint);
+}
+
+.hairline-svg path.nf {
+  fill: none;
+}
+
+.hairline-svg path.fo {
+  stroke: none;
+}
+
+.hairline-svg line.dash,
+.hairline-svg polyline.dash {
+  stroke-dasharray: 3 3;
+  stroke: var(--stroke-faint);
+}
+
+/* Dots */
+.hairline-svg circle.dot {
+  fill: var(--dot-hi);
+  stroke: none;
+}
+
+.hairline-svg circle.dot.m {
+  fill: var(--dot-mid);
+}
+
+.hairline-svg circle.dot.off {
+  fill: var(--dot-lo);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .hairline-container * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Hover hint */
+.hairline-container:hover {
+  cursor: crosshair;
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

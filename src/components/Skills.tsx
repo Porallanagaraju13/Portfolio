@@ -35,7 +35,7 @@ export default function Skills({ darkMode }: SkillsProps) {
     switch (category) {
       case "ai":
         return (
-          <div className="p-3 rounded-2xl bg-orange-100 text-brand-orange">
+          <div className="p-3 rounded-2xl bg-orange-100 text-primary-500">
             <Brain size={22} />
           </div>
         );
@@ -74,7 +74,7 @@ export default function Skills({ darkMode }: SkillsProps) {
           <h2 className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${
             darkMode ? "text-gray-100" : "text-neutral-dark"
           }`}>
-            Technical <span className="text-brand-orange">Skills</span>
+            Technical <span className="text-primary-500">Skills</span>
           </h2>
           <p className={`text-base sm:text-lg ${
             darkMode ? "text-gray-400" : "text-neutral-muted"
@@ -95,8 +95,8 @@ export default function Skills({ darkMode }: SkillsProps) {
               whileHover={{ y: -8 }}
               className={`p-6 rounded-3xl border transition-all duration-300 flex flex-col space-y-6 ${
                 darkMode
-                  ? "bg-gray-900 border-gray-800 shadow-md shadow-black/10 hover:border-brand-orange/40"
-                  : "bg-white border-gray-100 shadow-sm shadow-gray-100/40 hover:border-brand-orange/20 hover:shadow-lg hover:shadow-gray-200/20"
+                  ? "bg-gray-900 border-gray-800 shadow-md shadow-black/10 hover:border-primary-500/40"
+                  : "bg-white border-gray-100 shadow-sm shadow-gray-100/40 hover:border-primary-500/20 hover:shadow-lg hover:shadow-gray-200/20"
               }`}
             >
               {/* Card Header with Icon & Title side-by-side */}
@@ -122,7 +122,7 @@ export default function Skills({ darkMode }: SkillsProps) {
                     >
                       <span>{skill}</span>
                       {isHighlighted && (
-                        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-brand-orange/10 text-brand-orange uppercase tracking-wider scale-90">
+                        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-primary-500/10 text-primary-500 uppercase tracking-wider scale-90">
                           Core
                         </span>
                       )}

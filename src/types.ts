@@ -8,6 +8,8 @@ export interface Project {
   demoType?: "resume" | "invoice" | "ecommerce" | "jobmatch" | "voiceai" | "ctxr";
   githubUrl?: string;
   liveUrl?: string;
+  hairlineFigure?: any;
+  figureLabel?: string;
 }
 
 export interface SkillCategory {

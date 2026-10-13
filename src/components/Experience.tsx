@@ -120,7 +120,7 @@ export default function Experience({ darkMode }: ExperienceProps) {
   ];
 
   return (
-    <section ref={containerRef} id="experience" className="py-14 sm:py-20 bg-brand-orange-faint relative overflow-hidden">
+    <section ref={containerRef} id="experience" className="py-14 sm:py-20 bg-primary-500-faint relative overflow-hidden">
       {/* Background ambient light */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#FFF8F2]/30 to-transparent pointer-events-none dark:via-transparent" />
       
@@ -131,9 +131,9 @@ export default function Experience({ darkMode }: ExperienceProps) {
           {/* Section Title */}
           <div className="flex items-center justify-center space-x-2 text-neutral-dark dark:text-gray-100">
             {activeTab === "experience" ? (
-              <Briefcase className="text-brand-orange animate-pulse" size={24} />
+              <Briefcase className="text-primary-500 animate-pulse" size={24} />
             ) : (
-              <GraduationCap className="text-brand-orange animate-pulse" size={24} />
+              <GraduationCap className="text-primary-500 animate-pulse" size={24} />
             )}
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
               {activeTab === "experience" ? "Career Path" : "Education & Credentials"}
@@ -148,7 +148,7 @@ export default function Experience({ darkMode }: ExperienceProps) {
               onClick={() => setActiveTab("experience")}
               className={`flex-1 sm:flex-initial flex items-center justify-center space-x-1.5 px-5 py-2.5 rounded-full cursor-pointer transition-all duration-300 ${
                 activeTab === "experience"
-                  ? "bg-brand-orange text-white shadow-sm"
+                  ? "bg-primary-500 text-white shadow-sm"
                   : darkMode
                     ? "text-gray-400 hover:text-white"
                     : "text-neutral-muted hover:text-neutral-dark"
@@ -162,7 +162,7 @@ export default function Experience({ darkMode }: ExperienceProps) {
               onClick={() => setActiveTab("education")}
               className={`flex-1 sm:flex-initial flex items-center justify-center space-x-1.5 px-5 py-2.5 rounded-full cursor-pointer transition-all duration-300 ${
                 activeTab === "education"
-                  ? "bg-brand-orange text-white shadow-sm"
+                  ? "bg-primary-500 text-white shadow-sm"
                   : darkMode
                     ? "text-gray-400 hover:text-white"
                     : "text-neutral-muted hover:text-neutral-dark"
@@ -201,18 +201,18 @@ export default function Experience({ darkMode }: ExperienceProps) {
                       {/* Timeline Pin Indicator */}
                       <div className={`absolute left-[7px] top-1.5 w-5 h-5 rounded-full border-2 transition-transform duration-300 group-hover:scale-125 z-10 flex items-center justify-center ${
                         exp.isLatest
-                          ? "bg-brand-orange border-brand-orange shadow-md shadow-brand-orange/40"
+                          ? "bg-primary-500 border-primary-500 shadow-md shadow-primary-500/40"
                           : darkMode 
                             ? "bg-gray-900 border-gray-700" 
                             : "bg-white border-gray-300"
                       }`}>
                         {exp.isLatest && (
-                          <span className="absolute w-full h-full rounded-full bg-brand-orange/30 animate-ping"></span>
+                          <span className="absolute w-full h-full rounded-full bg-primary-500/30 animate-ping"></span>
                         )}
                       </div>
 
                       {/* Period Badge */}
-                      <div className="flex items-center space-x-1.5 text-xs font-bold tracking-wider text-brand-orange">
+                      <div className="flex items-center space-x-1.5 text-xs font-bold tracking-wider text-primary-500">
                         <Calendar size={12} />
                         <span>{exp.period}</span>
                       </div>
@@ -221,7 +221,7 @@ export default function Experience({ darkMode }: ExperienceProps) {
                       <div className={`p-4 sm:p-6 rounded-2xl border transition-all duration-300 ${
                         exp.isLatest
                           ? darkMode
-                            ? "bg-gray-950/80 border-brand-orange/40 shadow-lg shadow-black/20"
+                            ? "bg-gray-950/80 border-primary-500/40 shadow-lg shadow-black/20"
                             : "bg-white border-[#EBEBEB] shadow-[0_10px_30px_-5px_rgba(0,0,0,0.02)]"
                           : darkMode
                             ? "bg-gray-900/40 border-gray-800 hover:border-gray-700"
@@ -233,7 +233,7 @@ export default function Experience({ darkMode }: ExperienceProps) {
                           {exp.role}
                         </h3>
                         
-                        <h4 className="text-sm font-semibold text-brand-orange mt-0.5">
+                        <h4 className="text-sm font-semibold text-primary-500 mt-0.5">
                           {exp.company}
                         </h4>
                         
@@ -258,7 +258,7 @@ export default function Experience({ darkMode }: ExperienceProps) {
                   {/* Education Timeline */}
                   <div className="space-y-6 relative">
                     <h3 className="text-lg font-bold tracking-tight text-neutral-dark dark:text-gray-100 flex items-center gap-2 mb-4">
-                      <GraduationCap className="text-brand-orange" size={20} />
+                      <GraduationCap className="text-primary-500" size={20} />
                       <span>Education Details</span>
                     </h3>
 
@@ -275,18 +275,18 @@ export default function Experience({ darkMode }: ExperienceProps) {
                         {/* Timeline Pin */}
                         <div className={`absolute left-[7px] top-1.5 w-5 h-5 rounded-full border-2 flex items-center justify-center ${
                           idx === 0
-                            ? "bg-brand-orange border-brand-orange shadow-md shadow-brand-orange/40"
+                            ? "bg-primary-500 border-primary-500 shadow-md shadow-primary-500/40"
                             : darkMode 
                               ? "bg-gray-900 border-gray-700" 
                               : "bg-white border-gray-300"
                         }`}>
                           {idx === 0 && (
-                            <span className="absolute w-full h-full rounded-full bg-brand-orange/30 animate-ping"></span>
+                            <span className="absolute w-full h-full rounded-full bg-primary-500/30 animate-ping"></span>
                           )}
                         </div>
 
                         {/* Period Badge */}
-                        <div className="flex items-center space-x-1.5 text-xs font-bold tracking-wider text-brand-orange">
+                        <div className="flex items-center space-x-1.5 text-xs font-bold tracking-wider text-primary-500">
                           <Calendar size={12} />
                           <span>{edu.period}</span>
                         </div>
@@ -300,11 +300,11 @@ export default function Experience({ darkMode }: ExperienceProps) {
                           }`}>
                             {edu.degree}
                           </h4>
-                          <h5 className="text-xs font-semibold text-brand-orange mt-0.5">
+                          <h5 className="text-xs font-semibold text-primary-500 mt-0.5">
                             {edu.institution}
                           </h5>
                           <div className="pt-2 border-t border-gray-100/5 mt-2.5">
-                            <span className="text-[10px] font-mono text-brand-orange bg-brand-orange/5 px-2 py-0.5 rounded-md font-bold">
+                            <span className="text-[10px] font-mono text-primary-500 bg-primary-500/5 px-2 py-0.5 rounded-md font-bold">
                               {edu.details}
                             </span>
                           </div>
@@ -316,7 +316,7 @@ export default function Experience({ darkMode }: ExperienceProps) {
                   {/* Achievements section */}
                   <div className="space-y-4 pt-6 border-t border-gray-100 dark:border-gray-850">
                     <h3 className="text-lg font-bold tracking-tight text-neutral-dark dark:text-gray-100 flex items-center gap-2">
-                      <Trophy className="text-brand-orange animate-bounce" size={20} />
+                      <Trophy className="text-primary-500 animate-bounce" size={20} />
                       <span>Key Achievements</span>
                     </h3>
                     <div className="space-y-3">
@@ -327,7 +327,7 @@ export default function Experience({ darkMode }: ExperienceProps) {
                             darkMode ? "bg-gray-900/40 border-gray-800" : "bg-white/80 border-[#F0F0F0]"
                           }`}
                         >
-                          <div className="p-2 rounded-xl bg-orange-100/60 dark:bg-orange-950/40 text-brand-orange mt-0.5">
+                          <div className="p-2 rounded-xl bg-orange-100/60 dark:bg-orange-950/40 text-primary-500 mt-0.5">
                             <Trophy size={14} />
                           </div>
                           <p className={`text-xs sm:text-sm leading-relaxed ${
@@ -343,7 +343,7 @@ export default function Experience({ darkMode }: ExperienceProps) {
                   {/* Certifications & Internships section */}
                   <div className="space-y-4 pt-6 border-t border-gray-100 dark:border-gray-850">
                     <h3 className="text-lg font-bold tracking-tight text-neutral-dark dark:text-gray-100 flex items-center gap-2">
-                      <Award className="text-brand-orange" size={20} />
+                      <Award className="text-primary-500" size={20} />
                       <span>Certifications & Internships</span>
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
@@ -367,7 +367,7 @@ export default function Experience({ darkMode }: ExperienceProps) {
                             </p>
                           </div>
                           <div className="pt-2.5 border-t border-gray-100/5 mt-3 flex items-center justify-between">
-                            <span className="text-[9px] font-mono font-bold text-brand-orange bg-brand-orange/5 px-2 py-0.5 rounded-md">
+                            <span className="text-[9px] font-mono font-bold text-primary-500 bg-primary-500/5 px-2 py-0.5 rounded-md">
                               {cert.year}
                             </span>
                           </div>
@@ -393,7 +393,7 @@ export default function Experience({ darkMode }: ExperienceProps) {
                   className="relative w-full aspect-square flex items-center justify-center rounded-3xl transition-all duration-300 bg-transparent p-0"
                 >
                   {/* Floating ambient glow specifically behind the avatar */}
-                  <div className="absolute inset-6 rounded-full bg-brand-orange/10 blur-3xl -z-10 animate-pulse"></div>
+                  <div className="absolute inset-6 rounded-full bg-primary-500/10 blur-3xl -z-10 animate-pulse"></div>
                   <AnimatePresence mode="wait">
                     <motion.img
                       key={activeTab}
