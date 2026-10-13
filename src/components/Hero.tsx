@@ -1,6 +1,5 @@
 import { Download, Github, Linkedin, Mail, MessageSquare } from "lucide-react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { useEffect } from "react";
 import HairlineFigure from "../hairline/HairlineFigure";
 import { heroNetworkMount } from "../hairline/figures";
 
@@ -12,16 +11,6 @@ interface HeroProps {
 export default function Hero({ darkMode, onContactClick }: HeroProps) {
   const { scrollY } = useScroll();
   const yText = useTransform(scrollY, [0, 600], [0, -35]);
-
-  // Load Hairline kernel
-  useEffect(() => {
-    if (!(window as any).HL) {
-      const script = document.createElement('script');
-      script.src = '/src/hairline/kernel.js';
-      script.async = true;
-      document.head.appendChild(script);
-    }
-  }, []);
 
   return (
     <section id="home" className="relative flex min-h-[90vh] items-center overflow-hidden px-0 pb-16 pt-32 md:pt-28">

@@ -1,8 +1,8 @@
 /**
  * HairlineFigure: A React wrapper for Hairline isometric line figures
- * Provides accessibility, reduced-motion support, and theme integration
+ * Self-contained - no external kernel dependency needed
  */
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 interface HairlineFigureProps {
   figureId: string;
@@ -20,7 +20,6 @@ export default function HairlineFigure({
   darkMode,
 }: HairlineFigureProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     if (!containerRef.current || !mountFn) return;
@@ -41,15 +40,8 @@ export default function HairlineFigure({
     container.appendChild(svg);
     container.appendChild(read);
 
-    // Check for reduced motion
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion && (window as any).HL?.setReducedMotion) {
-      (window as any).HL.setReducedMotion(true);
-    }
-
     try {
       const instance = mountFn({ stage, svg, read }, 3);
-      setMounted(true);
 
       return () => {
         if (instance?.destroy) {
@@ -58,7 +50,7 @@ export default function HairlineFigure({
         container.innerHTML = '';
       };
     } catch (err) {
-      console.error('Hairline mount error:', err);
+      console.error('Figure mount error:', err);
     }
   }, [figureId, mountFn, ariaLabel]);
 

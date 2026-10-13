@@ -1,8 +1,7 @@
 import { Github, ExternalLink, Play, ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
-import { useEffect } from "react";
 import HairlineFigure from "../hairline/HairlineFigure";
-import { jobMatchMount } from "../hairline/figures";
+import { jobMatchMount, harnessDiffMount, asterGateMount } from "../hairline/figures";
 
 interface ProjectsProps {
   darkMode: boolean;
@@ -22,15 +21,6 @@ interface Project {
 }
 
 export default function Projects({ darkMode }: ProjectsProps) {
-  // Load Hairline kernel
-  useEffect(() => {
-    if (!(window as any).HL) {
-      const script = document.createElement('script');
-      script.src = '/src/hairline/kernel.js';
-      script.async = true;
-      document.head.appendChild(script);
-    }
-  }, []);
 
   const projects: Project[] = [
     {
@@ -52,6 +42,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
       githubUrl: "https://github.com/Porallanagaraju13/Harness",
       liveUrl: "https://harnessdiff.vercel.app",
       featured: true,
+      figureMountFn: harnessDiffMount,
       figureLabel: "Agent evaluation harness with success metrics"
     },
     {
@@ -62,6 +53,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
       githubUrl: "https://github.com/Porallanagaraju13/aster-browser-agent",
       releasesUrl: "https://github.com/Porallanagaraju13/aster-browser-agent/releases",
       featured: true,
+      figureMountFn: asterGateMount,
       figureLabel: "Browser automation agent with approval gates"
     },
     {
