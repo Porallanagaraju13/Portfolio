@@ -63,7 +63,7 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
       <header className={`sticky top-0 z-50 hidden w-full border-b backdrop-blur-md transition-all duration-300 md:block ${
         darkMode
           ? "bg-neutral-dark/85 border-gray-800/80 text-white shadow-lg shadow-black/5"
-          : "bg-white/80 border-gray-100 text-neutral-dark shadow-xs"
+          : "bg-white/80 border-gray-100 text-surface-darkest shadow-xs"
       }`}>
         <div className="mx-auto flex h-20 max-w-5xl items-center justify-between gap-4 px-6 md:px-8">
           {/* Logo */}
@@ -131,7 +131,7 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
               onClick={() => setDarkMode(!darkMode)}
               className={`flex items-center justify-center p-2 rounded-full border transition-all duration-200 cursor-pointer ${
                 darkMode 
-                  ? "border-neutral-800 bg-neutral-900 text-amber-400 hover:bg-neutral-850" 
+                  ? "border-neutral-800 bg-surface-elevated text-primary-400 hover:bg-surface-dark" 
                   : "border-gray-100 bg-gray-50 text-neutral-muted hover:bg-gray-100"
               }`}
               style={{ width: "38px", height: "38px" }}
@@ -193,7 +193,7 @@ export default function Navbar({ darkMode, setDarkMode, onHireMeClick, isChatOpe
         <nav aria-label="Mobile navigation" className={`flex items-center justify-between gap-0 overflow-hidden rounded-full border p-1.5 shadow-2xl backdrop-blur-xl transition-all duration-300 ${
           darkMode 
             ? "bg-black/80 border-neutral-800 text-gray-300 shadow-black/40" 
-            : "bg-white/90 border-gray-200/50 text-neutral-dark shadow-gray-200/40"
+            : "bg-white/90 border-gray-200/50 text-surface-darkest shadow-gray-200/40"
         }`}>
           {/* Navigation Links */}
           <div className="flex items-center justify-between w-full px-1">

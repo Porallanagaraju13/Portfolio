@@ -204,7 +204,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
                     viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.5, delay: idx * 0.08, ease: "easeOut" }}
                     className={`p-6 rounded-[28px] border flex flex-col justify-between h-full transition-all duration-300 ${
-                      darkMode ? "bg-[#1C1C1E] border-neutral-800" : "bg-white border-[#EDEDED]"
+                      darkMode ? "bg-surface-elevated border-neutral-800/50" : "bg-white border-[#EDEDED]"
                     } ${
                       activeDemo === proj.demoType
                         ? "border-primary-500/60 shadow-[0_12px_30px_-4px_rgba(255,138,0,0.12)]"
@@ -349,7 +349,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
               className={`mt-12 p-8 rounded-3xl border shadow-xl relative animate-in fade-in zoom-in-95 duration-200 ${
                 darkMode 
                   ? "bg-gray-950 border-gray-800 text-white" 
-                  : "bg-white border-gray-100 text-neutral-dark shadow-xl"
+                  : "bg-white border-gray-100 text-surface-darkest shadow-xl"
               }`}
             >
               {/* Close Simulator */}
@@ -517,7 +517,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
                               ? "bg-primary-500 text-white rounded-tr-none"
                               : darkMode
                                 ? "bg-gray-950 text-gray-300 border border-gray-800 rounded-tl-none"
-                                : "bg-white text-neutral-dark border border-gray-100 rounded-tl-none"
+                                : "bg-white text-surface-darkest border border-gray-100 rounded-tl-none"
                           }`}>
                             {msg.text}
                           </div>
@@ -534,7 +534,7 @@ export default function Projects({ darkMode }: ProjectsProps) {
                         onChange={(e) => setChatInput(e.target.value)}
                         onKeyDown={(e) => e.key === "Enter" && sendChatMessage()}
                         className={`flex-1 px-4 py-2 text-xs rounded-xl border focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 ${
-                          darkMode ? "bg-gray-950 border-gray-800 text-white" : "bg-white border-gray-100 text-neutral-dark"
+                          darkMode ? "bg-surface-elevated border-neutral-800/50 text-white" : "bg-white border-gray-100 text-surface-darkest"
                         }`}
                       />
                       <button

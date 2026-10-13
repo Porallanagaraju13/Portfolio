@@ -45,7 +45,7 @@ function LandingPage({
     <div
       className={`min-h-screen font-sans transition-colors duration-300 relative ${
         darkMode
-          ? "bg-neutral-dark text-gray-100 dark"
+          ? "bg-surface-darkest text-gray-100 dark"
           : "bg-neutral-light text-neutral-dark"
       }`}
     >
@@ -161,9 +161,10 @@ export default function App() {
     try {
       const saved = localStorage.getItem("portfolio_dark_mode");
       if (saved !== null) return JSON.parse(saved);
-      return false;
+      // Default to dark mode (production LLM systems theme)
+      return true;
     } catch {
-      return false;
+      return true;
     }
   });
 
