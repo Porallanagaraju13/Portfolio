@@ -226,7 +226,7 @@ export default function Contact({ darkMode }: ContactProps) {
                 id="contact-orbital-svg"
                 viewBox="0 0 300 300"
                 className="w-full h-full relative z-10"
-                alt="Contact Orbiting Network Elements"
+                aria-label="Contact Orbiting Network Elements"
               >
                 <defs>
                   <linearGradient id="orbGrad" x1="0%" y1="0%" x2="100%" y2="100%">

@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import AIChatbot from "./components/AIChatbot";
 import BlogPage from "./components/BlogPage";
 import BlogPost from "./components/BlogPost";
+import "./hairline/hairline.css";
 
 // ─── Landing Page (all existing sections + new blog preview) ────────────────
 function LandingPage({

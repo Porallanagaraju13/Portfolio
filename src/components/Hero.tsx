@@ -1,6 +1,8 @@
 import { Download, Github, Linkedin, Mail, MessageSquare } from "lucide-react";
 import { motion, useScroll, useTransform } from "motion/react";
-import Tilt3D from "./Tilt3D";
+import { useEffect } from "react";
+import HairlineFigure from "../hairline/HairlineFigure";
+import { heroNetworkMount } from "../hairline/figures";
 
 interface HeroProps {
   darkMode: boolean;
@@ -10,124 +12,152 @@ interface HeroProps {
 export default function Hero({ darkMode, onContactClick }: HeroProps) {
   const { scrollY } = useScroll();
   const yText = useTransform(scrollY, [0, 600], [0, -35]);
-  const yAvatar = useTransform(scrollY, [0, 600], [0, 55]);
+
+  // Load Hairline kernel
+  useEffect(() => {
+    if (!(window as any).HL) {
+      const script = document.createElement('script');
+      script.src = '/src/hairline/kernel.js';
+      script.async = true;
+      document.head.appendChild(script);
+    }
+  }, []);
 
   return (
-    <section id="home" className="relative flex min-h-[85vh] items-center overflow-hidden px-0 pb-12 pt-28 md:pt-24">
-      <div className="pointer-events-none absolute left-1/2 top-1/4 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-orange/5 blur-3xl" />
+    <section id="home" className="relative flex min-h-[90vh] items-center overflow-hidden px-0 pb-16 pt-32 md:pt-28">
+      {/* Subtle gradient backdrop */}
+      <div className="pointer-events-none absolute left-1/2 top-1/3 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-orange/4 blur-[120px]" />
 
-      <div className="container relative z-10 mx-auto max-w-5xl px-4 sm:px-6 md:px-8">
-        <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-12 md:gap-12">
+      <div className="container relative z-10 mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
+        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-12 md:gap-16">
+          {/* Left: Text Content */}
           <div className="md:col-span-7">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               style={{ y: yText }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="flex flex-col space-y-6 sm:space-y-8"
+              transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
+              className="flex flex-col space-y-8"
             >
-              <div className="flex items-center space-x-3.5">
+              {/* Social Links Row */}
+              <div className="flex items-center space-x-3">
                 <a
                   href="https://www.linkedin.com/in/nagaraju-poralla-13aab2248/"
                   target="_blank"
                   rel="noreferrer noopener"
                   aria-label="Visit Nagaraju's LinkedIn profile"
-                  className={`cursor-pointer rounded-2xl border p-3.5 transition-all duration-200 ${
+                  className={`group cursor-pointer rounded-2xl border p-3.5 transition-all duration-300 ${
                     darkMode
-                      ? "border-gray-800 bg-gray-900 text-gray-300 hover:border-brand-orange hover:text-brand-orange"
-                      : "border-gray-100 bg-white text-neutral-muted hover:border-brand-orange hover:text-brand-orange hover:shadow-md hover:shadow-gray-100"
+                      ? "border-gray-800 bg-gray-900/50 text-gray-400 hover:border-brand-orange hover:bg-gray-900 hover:text-brand-orange"
+                      : "border-gray-200 bg-white text-gray-600 hover:border-brand-orange hover:text-brand-orange hover:shadow-lg hover:shadow-brand-orange/5"
                   }`}
                 >
-                  <Linkedin size={20} />
+                  <Linkedin size={19} strokeWidth={1.5} />
                 </a>
                 <a
                   href="https://github.com/Porallanagaraju13"
                   target="_blank"
                   rel="noreferrer noopener"
                   aria-label="Visit Nagaraju's GitHub profile"
-                  className={`cursor-pointer rounded-2xl border p-3.5 transition-all duration-200 ${
+                  className={`group cursor-pointer rounded-2xl border p-3.5 transition-all duration-300 ${
                     darkMode
-                      ? "border-gray-800 bg-gray-900 text-gray-300 hover:border-brand-orange hover:text-brand-orange"
-                      : "border-gray-100 bg-white text-neutral-muted hover:border-brand-orange hover:text-brand-orange hover:shadow-md hover:shadow-gray-100"
+                      ? "border-gray-800 bg-gray-900/50 text-gray-400 hover:border-brand-orange hover:bg-gray-900 hover:text-brand-orange"
+                      : "border-gray-200 bg-white text-gray-600 hover:border-brand-orange hover:text-brand-orange hover:shadow-lg hover:shadow-brand-orange/5"
                   }`}
                 >
-                  <Github size={20} />
+                  <Github size={19} strokeWidth={1.5} />
                 </a>
                 <a
                   href="mailto:nagarajuporalla13@gmail.com"
                   aria-label="Email Nagaraju"
-                  className={`cursor-pointer rounded-2xl border p-3.5 transition-all duration-200 ${
+                  className={`group cursor-pointer rounded-2xl border p-3.5 transition-all duration-300 ${
                     darkMode
-                      ? "border-gray-800 bg-gray-900 text-gray-300 hover:border-brand-orange hover:text-brand-orange"
-                      : "border-gray-100 bg-white text-neutral-muted hover:border-brand-orange hover:text-brand-orange hover:shadow-md hover:shadow-gray-100"
+                      ? "border-gray-800 bg-gray-900/50 text-gray-400 hover:border-brand-orange hover:bg-gray-900 hover:text-brand-orange"
+                      : "border-gray-200 bg-white text-gray-600 hover:border-brand-orange hover:text-brand-orange hover:shadow-lg hover:shadow-brand-orange/5"
                   }`}
                 >
-                  <Mail size={20} />
+                  <Mail size={19} strokeWidth={1.5} />
                 </a>
               </div>
 
-              <div className="space-y-4">
-                <h1 className="max-w-full break-words text-4xl font-extrabold leading-tight tracking-tight select-none sm:text-6xl md:text-7xl">
+              {/* Main Heading */}
+              <div className="space-y-5">
+                <h1 className="max-w-full break-words text-[2.75rem] font-black leading-[1.1] tracking-[-0.02em] select-none sm:text-6xl md:text-[4.5rem]">
                   <span className={darkMode ? "text-gray-100" : "text-neutral-dark"}>Hi, I'm</span>
                   <br />
-                  <span className="text-brand-orange">Nagaraju</span>
-                  <span className="block text-brand-orange">Poralla</span>
+                  <span className="bg-gradient-to-r from-brand-orange via-brand-orange to-[#FF6B00] bg-clip-text text-transparent">
+                    Nagaraju Poralla
+                  </span>
                 </h1>
-                <h2 className={`text-lg font-bold sm:text-2xl md:text-3xl ${darkMode ? "text-gray-300" : "text-neutral-muted"}`}>
-                  Founding Engineer &ndash; AI Agents &amp; R&amp;D
+                <h2 className={`text-xl font-bold tracking-tight sm:text-2xl md:text-[1.75rem] ${darkMode ? "text-gray-300" : "text-gray-700"}`}>
+                  AI Engineer
                 </h2>
               </div>
 
-              <p className={`max-w-2xl text-base leading-relaxed sm:text-lg ${darkMode ? "text-gray-400" : "text-neutral-muted"}`}>
-                I build AI agents, workflow automations, and full-stack products that solve practical business problems and create clear user experiences.
+              {/* Description */}
+              <p className={`max-w-xl text-base leading-relaxed sm:text-lg md:text-[1.125rem] ${darkMode ? "text-gray-400" : "text-gray-600"}`}>
+                Building AI agents, workflow automations, and full-stack products that solve real-world problems with clean, intuitive user experiences.
               </p>
 
-              <div className="flex flex-col items-stretch space-y-4 pt-4 sm:flex-row sm:items-center sm:space-x-5 sm:space-y-0">
+              {/* CTA Buttons */}
+              <div className="flex flex-col items-stretch space-y-4 pt-2 sm:flex-row sm:items-center sm:space-x-4 sm:space-y-0">
                 <a
                   href="./Nagaraju_Poralla_CV.pdf"
                   download
                   id="download-resume-hero-btn"
-                  className="flex w-full items-center justify-center space-x-2 rounded-2xl bg-brand-orange px-8 py-4 font-bold text-white shadow-lg shadow-brand-orange/20 transition-all duration-200 hover:scale-[1.02] hover:bg-brand-orange-hover active:scale-[0.98] sm:w-auto"
+                  className="group flex w-full items-center justify-center space-x-2.5 rounded-2xl bg-brand-orange px-8 py-4 font-bold text-white shadow-xl shadow-brand-orange/20 transition-all duration-300 hover:scale-[1.02] hover:bg-[#FF6B00] hover:shadow-2xl hover:shadow-brand-orange/30 active:scale-[0.98] sm:w-auto"
                 >
-                  <Download size={18} />
+                  <Download size={18} strokeWidth={2.5} />
                   <span>Download CV</span>
                 </a>
                 <button
                   type="button"
                   onClick={onContactClick}
                   id="contact-me-hero-btn"
-                  className={`flex w-full items-center justify-center space-x-2 rounded-2xl border px-8 py-4 font-bold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] sm:w-auto cursor-pointer ${
+                  className={`flex w-full items-center justify-center space-x-2.5 rounded-2xl border px-8 py-4 font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] sm:w-auto cursor-pointer ${
                     darkMode
-                      ? "border-gray-800 bg-gray-900 text-gray-300 hover:border-brand-orange hover:text-brand-orange"
-                      : "border-brand-orange bg-transparent text-brand-orange hover:bg-brand-orange-light"
+                      ? "border-gray-700 bg-gray-900/50 text-gray-300 hover:border-brand-orange hover:bg-gray-900 hover:text-brand-orange"
+                      : "border-brand-orange/20 bg-white text-brand-orange hover:border-brand-orange hover:bg-brand-orange/5 hover:shadow-lg"
                   }`}
                 >
-                  <MessageSquare size={18} />
+                  <MessageSquare size={18} strokeWidth={2.5} />
                   <span>Contact Me</span>
                 </button>
               </div>
             </motion.div>
           </div>
 
-          <div className="hidden justify-center md:col-span-5 md:flex">
-            <Tilt3D maxRotate={15} scale={1.05} className="w-full max-w-[360px] md:max-w-[400px]">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                style={{ y: yAvatar }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative flex aspect-square w-full items-center justify-center rounded-3xl bg-transparent p-0 transition-all duration-300"
-              >
-                <div className="absolute inset-4 -z-10 animate-pulse rounded-full bg-brand-orange/15 blur-3xl" />
-                <img
-                  src="./assets/avatar_hero.png"
-                  alt="3D illustration of Nagaraju Poralla as a software engineer"
-                  fetchPriority="high"
-                  decoding="async"
-                  className="relative z-10 h-auto w-full object-contain drop-shadow-[0_20px_40px_rgba(255,138,0,0.25)] transition-transform duration-500 hover:scale-[1.03]"
+          {/* Right: Interactive Hairline Figure */}
+          <div className="flex justify-center md:col-span-5">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+              className="relative w-full max-w-[420px]"
+            >
+              {/* Glow backdrop */}
+              <div className="absolute inset-0 -z-10 animate-pulse rounded-3xl bg-gradient-to-br from-brand-orange/10 via-brand-orange/5 to-transparent blur-2xl" />
+              
+              {/* Figure container with premium card styling */}
+              <div className={`relative overflow-hidden rounded-3xl border p-8 backdrop-blur-sm transition-all duration-500 ${
+                darkMode
+                  ? "border-gray-800 bg-gray-900/40"
+                  : "border-gray-200 bg-white/80 shadow-xl shadow-gray-200/50"
+              }`}>
+                <HairlineFigure
+                  figureId="hero-network"
+                  mountFn={heroNetworkMount}
+                  ariaLabel="Interactive neural network visualization responding to pointer"
+                  darkMode={darkMode}
+                  className="w-full"
                 />
-              </motion.div>
-            </Tilt3D>
+                <div className={`mt-4 text-center text-xs font-medium tracking-wide ${
+                  darkMode ? "text-gray-500" : "text-gray-400"
+                }`}>
+                  Hover to interact
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>

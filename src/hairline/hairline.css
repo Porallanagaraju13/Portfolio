@@ -1,0 +1,135 @@
+/* Hairline figure styles - isometric line art theme */
+
+.hairline-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+  user-select: none;
+}
+
+.hairline-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+/* Light theme (default) */
+.hairline-container.light .hairline-svg {
+  --ground: #FFFFFF;
+  --stroke-hi: #FF8A00;
+  --stroke-mid: #1D1D1F;
+  --stroke-lo: #9CA3AF;
+  --stroke-faint: #E5E7EB;
+  --stroke-lit: #000000;
+  --dot-hi: #FF8A00;
+  --dot-mid: #1D1D1F;
+  --dot-lo: #9CA3AF;
+}
+
+/* Dark theme */
+.hairline-container.dark .hairline-svg {
+  --ground: #18181B;
+  --stroke-hi: #FF8A00;
+  --stroke-mid: #E5E7EB;
+  --stroke-lo: #6B7280;
+  --stroke-faint: #374151;
+  --stroke-lit: #FFFFFF;
+  --dot-hi: #FF8A00;
+  --dot-mid: #E5E7EB;
+  --dot-lo: #6B7280;
+}
+
+/* Path styles */
+.hairline-svg path,
+.hairline-svg polygon,
+.hairline-svg polyline,
+.hairline-svg line {
+  fill: var(--ground);
+  stroke: var(--stroke-mid);
+  stroke-width: 0.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.hairline-svg path.sil {
+  stroke: var(--stroke-mid);
+  stroke-width: 1;
+}
+
+.hairline-svg path.hi,
+.hairline-svg polyline.hi,
+.hairline-svg line.hi {
+  stroke: var(--stroke-hi);
+  stroke-width: 1;
+}
+
+.hairline-svg path.lo,
+.hairline-svg polyline.lo,
+.hairline-svg line.lo {
+  stroke: var(--stroke-lo);
+}
+
+.hairline-svg path.faint,
+.hairline-svg polyline.faint,
+.hairline-svg line.faint {
+  stroke: var(--stroke-faint);
+}
+
+.hairline-svg path.nf {
+  fill: none;
+}
+
+.hairline-svg path.fo {
+  stroke: none;
+}
+
+.hairline-svg line.dash,
+.hairline-svg polyline.dash {
+  stroke-dasharray: 3 3;
+  stroke: var(--stroke-faint);
+}
+
+/* Dots */
+.hairline-svg circle.dot {
+  fill: var(--dot-hi);
+  stroke: none;
+}
+
+.hairline-svg circle.dot.m {
+  fill: var(--dot-mid);
+}
+
+.hairline-svg circle.dot.off {
+  fill: var(--dot-lo);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .hairline-container * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Hover hint */
+.hairline-container:hover {
+  cursor: crosshair;
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
